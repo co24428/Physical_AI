@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head><meta charset="utf-8"/><title>맞춤형 데이터셋 스튜디오 | SynapseQC</title><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary-container":"#67f4b7","outline-variant":"#3a494b","secondary-fixed-dim":"#89ceff","primary":"#e0fdff","outline":"#849495","on-surface":"#dfe2ee","on-background":"#dfe2ee","surface-container-low":"#181c24","on-error-container":"#ffdad6","on-primary-container":"#006a70","on-secondary-fixed-variant":"#004c6e","inverse-on-surface":"#2c3039","background":"#0f131c","surface-bright":"#353942","on-error":"#690005","on-tertiary-fixed":"#002113","surface-variant":"#31353e","primary-fixed":"#6ff6ff","secondary-fixed":"#c9e6ff","primary-container":"#00f2fe","surface-tint":"#00dce6","on-secondary-fixed":"#001e2f","error-container":"#93000a","surface":"#0f131c","inverse-primary":"#00696f","on-tertiary-container":"#006e4b","surface-container-highest":"#31353e","secondary-container":"#00a2e6","on-tertiary":"#003824","inverse-surface":"#dfe2ee","surface-container":"#1c2028","on-secondary-container":"#00344e","on-tertiary-fixed-variant":"#005236","surface-dim":"#0f131c","error":"#ffb4ab","secondary":"#89ceff","tertiary-fixed":"#6ffbbe","on-primary-fixed-variant":"#004f53","surface-container-high":"#262a33","on-surface-variant":"#b9cacb","on-primary-fixed":"#002022","primary-fixed-dim":"#00dce6","on-secondary":"#00344d","on-primary":"#00373a","surface-container-lowest":"#0a0e16","tertiary":"#e1ffec","tertiary-fixed-dim":"#4edea3"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1rem","space-xl":"1.5rem","space-xs":"0.25rem","space-lg":"1rem","space-md":"0.75rem","space-sm":"0.5rem","gutter":"0.75rem"},"fontFamily":{"headline-md":["Inter"],"telemetry-lg":["JetBrains Mono"],"telemetry-md":["JetBrains Mono"],"title-sm":["Inter"],"body-md":["Inter"],"label-caps":["JetBrains Mono"],"headline-lg":["Inter"],"headline-lg-mobile":["Inter"],"body-sm":["Inter"],"telemetry-sm":["JetBrains Mono"],"display-lg":["Inter"]},"fontSize":{"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}],"telemetry-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.03em","fontWeight":"700"}],"telemetry-md":["14px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-caps":["10px",{"lineHeight":"12px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"telemetry-sm":["11px",{"lineHeight":"14px","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><div class="flex items-center gap-space-sm"><img alt="SynapseQC Logo" class="h-8 w-auto object-contain" src="images/img-ee768685d3.jpg"/><span class="font-title-sm text-title-sm tracking-tight text-primary uppercase">SynapseQC</span><span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps">PHYSICAL AI</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(0,242,254,0.25)]"><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="overview" href="index.html">솔루션 소개</a><a aria-current="page" class="px-space-md py-1.5 transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(0,242,254,0.25)]" data-path="dataset-studio" href="dataset-studio.html">데이터셋 스튜디오</a><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="automl-pipeline" href="automl-pipeline.html">AutoML 파이프라인</a><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="edge-monitor" href="edge-monitor.html">실시간 엣지 모니터링</a></nav></div><div class="hidden lg:flex items-center gap-space-sm shrink-0"><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-tertiary font-telemetry-sm text-telemetry-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span><span>공장 폐쇄망 가동 중</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-primary font-medium">GPU PC:</span><span class="text-on-surface">10/10 정상</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-primary font-medium">CAM:</span><span class="text-on-surface">40/40 Online (10 FPS)</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-secondary-fixed-dim font-medium">지연:</span><span class="text-tertiary-fixed-dim font-semibold">28.4ms</span><span class="text-outline text-[10px]">(≤50ms)</span></div></div><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden md:flex flex-col text-right"><span class="font-title-sm text-title-sm text-on-surface leading-none">제1공장 엔지니어링팀</span><span class="font-label-caps text-label-caps text-tertiary-fixed-dim mt-0.5">MASTER OPERATOR</span></div><div class="relative"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-tertiary-container ring-2 ring-surface-container-lowest"></span></div></div></div></div></header><main class="w-full pt-16 bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Top Control Dock / Subheader Breadcrumb & Telemetry strip -->
+<section class="w-full bg-surface-container-lowest px-gutter py-space-sm flex flex-wrap items-center justify-between gap-space-md border-b-0">
+<!-- Project Selector & Metadata -->
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-space-xs bg-surface-container px-space-md py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px]">precision_manufacturing</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-md text-headline-md text-primary leading-none">Line #3 - 정밀 EV 모터 하우징 검사 데이터셋</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary-fixed-dim font-label-caps text-label-caps">v2.4 LOCKED</span>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">DVC HASH: 9fa2c4d · LOCAL REPOSITORY AIR-GAPPED</span>
+</div>
+<button class="ml-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<!-- Quick Stats Counters -->
+<div class="hidden 2xl:flex items-center gap-space-sm">
+<div class="flex items-center gap-2 bg-surface-container-low px-space-md py-1 rounded">
+<span class="font-label-caps text-label-caps text-outline">TOTAL RAW</span>
+<span class="font-telemetry-md text-telemetry-md text-on-surface">1,280<span class="text-outline text-telemetry-sm ml-0.5">장</span></span>
+<span class="text-outline-variant font-telemetry-sm">|</span>
+<span class="font-telemetry-sm text-telemetry-sm text-tertiary">정상 1,150</span>
+<span class="font-telemetry-sm text-telemetry-sm text-error">불량 130</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-space-md py-1 rounded">
+<span class="font-label-caps text-label-caps text-secondary-fixed-dim">SYNTHETIC AUG</span>
+<span class="font-telemetry-md text-telemetry-md text-primary-container">+5,120<span class="text-outline text-telemetry-sm ml-0.5">장</span></span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-space-md py-1 rounded">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-ping"></span>
+<span class="font-label-caps text-label-caps text-tertiary">PatchCore 레퍼런스 주입 완료</span>
+</div>
+</div>
+</div>
+<!-- Action Trigger Buttons -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-space-md py-1.5 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded font-title-sm text-title-sm flex items-center gap-1.5 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>신규 부품 데이터셋 생성</span>
+</button>
+<button class="px-space-md py-1.5 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded font-title-sm text-title-sm flex items-center gap-1.5 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">usb</span>
+<span>이미지 대량 수집 (USB/LAN)</span>
+</button>
+<button class="px-space-md py-1.5 bg-primary-container text-on-primary-container hover:bg-primary-fixed rounded font-title-sm text-title-sm flex items-center gap-1.5 transition-all shadow-[0_0_12px_rgba(0,242,254,0.35)]">
+<span class="material-symbols-outlined text-[18px]">cyclone</span>
+<span class="font-semibold">합성 증강 파이프라인 가동</span>
+</button>
+</div>
+</section>
+<!-- 3-Column Studio Workspace Grid -->
+<div class="w-full grid grid-cols-1 xl:grid-cols-12 gap-gutter px-gutter py-space-sm bg-surface">
+<!-- LEFT SIDEBAR: Taxonomy & Channel Filters (Col 3) -->
+<aside class="xl:col-span-3 flex flex-col gap-space-sm">
+<!-- Defect Taxonomy Card -->
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-md flex flex-col">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">category</span>
+<span class="font-title-sm text-title-sm text-on-surface">결함 유형 분류체계</span>
+</div>
+<span class="font-label-caps text-label-caps px-1.5 py-0.5 rounded bg-surface-container-high text-outline">5 CLASSES</span>
+</div>
+<div class="flex flex-col gap-1.5 mt-space-xs">
+<!-- Class item: Golden Normal -->
+<div class="p-space-sm rounded bg-surface-container hover:bg-surface-container-high cursor-pointer flex items-center justify-between transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-sm bg-tertiary-container shadow-[0_0_8px_rgba(103,244,183,0.5)]"></span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">정상품 (Golden Sample)</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">Baseline Zero-Defect</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-telemetry-md text-telemetry-md text-tertiary font-semibold">1,150</span>
+<span class="text-outline text-telemetry-sm block">89.8%</span>
+</div>
+</div>
+<!-- Class item: Surface Scratch (Active Selected) -->
+<div class="p-space-sm rounded bg-surface-container-high shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary-container shadow-[0_0_8px_rgba(0,242,254,0.6)]"></span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-semibold">사출/표면 스크래치</span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">Surface Micro-Crack</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-telemetry-md text-telemetry-md text-primary font-bold">42</span>
+<span class="text-primary-container text-telemetry-sm block font-medium">선택됨</span>
+</div>
+</div>
+<!-- Class item: Pin Deform -->
+<div class="p-space-sm rounded bg-surface-container hover:bg-surface-container-high cursor-pointer flex items-center justify-between transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-sm bg-error shadow-[0_0_8px_rgba(255,180,171,0.5)]"></span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface">압입 핀 미체결/휨</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">Pin Deform / Missing</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-telemetry-md text-telemetry-md text-on-surface">38</span>
+<span class="text-outline text-telemetry-sm block">3.0%</span>
+</div>
+</div>
+<!-- Class item: Burr -->
+<div class="p-space-sm rounded bg-surface-container hover:bg-surface-container-high cursor-pointer flex items-center justify-between transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary-fixed-dim"></span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface">미성형 / 버(Burr) 결함</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">Tolerance Exceed</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-telemetry-md text-telemetry-md text-on-surface">29</span>
+<span class="text-outline text-telemetry-sm block">2.3%</span>
+</div>
+</div>
+<!-- Class item: Foreign Particle -->
+<div class="p-space-sm rounded bg-surface-container hover:bg-surface-container-high cursor-pointer flex items-center justify-between transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary-container"></span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface">유류 오염 및 이물질</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">Foreign Particle</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-telemetry-md text-telemetry-md text-on-surface">21</span>
+<span class="text-outline text-telemetry-sm block">1.6%</span>
+</div>
+</div>
+</div>
+<button class="mt-space-sm w-full py-1.5 rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-telemetry-sm text-telemetry-sm flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>새 결함 클래스 라벨 추가</span>
+</button>
+</div>
+<!-- Sensor & Optical Filter Controls -->
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">photo_camera</span>
+<span>카메라 채널 &amp; 광학 조건 필터</span>
+</span>
+<span class="font-label-caps text-label-caps text-primary-container">40 CAM LIVE</span>
+</div>
+<!-- Camera Matrix Quick Selector -->
+<div>
+<span class="font-label-caps text-label-caps text-outline block mb-1">CAMERA RIG ID (CAM 01 - CAM 40)</span>
+<div class="grid grid-cols-4 gap-1">
+<button class="py-1 rounded bg-primary-container text-on-primary-container font-telemetry-sm text-telemetry-sm font-bold text-center">CAM 03</button>
+<button class="py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm text-center">CAM 04</button>
+<button class="py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm text-center">CAM 12</button>
+<button class="py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm text-center">ALL (40)</button>
+</div>
+</div>
+<!-- Optical Angle Toggle -->
+<div>
+<span class="font-label-caps text-label-caps text-outline block mb-1">LIGHTING ANGLE GEOMETRY</span>
+<div class="grid grid-cols-3 gap-1">
+<button class="py-1 rounded bg-surface-container-high text-primary font-telemetry-sm text-telemetry-sm text-center">동축 조명</button>
+<button class="py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm text-center">경사광 45°</button>
+<button class="py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm text-center">백라이트</button>
+</div>
+</div>
+<!-- Validation Status -->
+<div class="pt-1">
+<span class="font-label-caps text-label-caps text-outline block mb-1">검증 진행 상태</span>
+<div class="flex items-center justify-between text-body-sm text-body-sm text-on-surface bg-surface-container px-2.5 py-1.5 rounded">
+<span>검수 완료 (QC Verified)</span>
+<span class="font-telemetry-sm text-telemetry-sm text-tertiary font-bold">1,248 / 1,280</span>
+</div>
+</div>
+</div>
+<!-- Edge Dataset Health Telemetry -->
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-md">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-outline">CLASS BALANCE / ANOMALY RATIO</span>
+<span class="font-telemetry-sm text-telemetry-sm text-tertiary">9.2% 불량률</span>
+</div>
+<!-- Segment Bar -->
+<div class="w-full h-2 bg-surface-container-lowest rounded-full overflow-hidden flex">
+<div class="h-full bg-tertiary-container" style="width: 89.8%" title="Golden 89.8%"></div>
+<div class="h-full bg-primary-container" style="width: 3.3%" title="Scratch 3.3%"></div>
+<div class="h-full bg-error" style="width: 3.0%" title="Pin Deform 3.0%"></div>
+<div class="h-full bg-secondary-fixed-dim" style="width: 2.3%" title="Burr 2.3%"></div>
+<div class="h-full bg-secondary-container" style="width: 1.6%" title="Foreign 1.6%"></div>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-2 leading-relaxed">
+          *소량 불량 데이터 환경에 최적화: Few-Shot 이상치 생성 파이프라인으로 불량 가상 증강 비율 1:4 충족 중.
+        </p>
+</div>
+</aside>
+<!-- CENTER CANVAS: High-Precision Inspector & Annotation Studio (Col 6) -->
+<main class="xl:col-span-6 flex flex-col gap-space-sm min-w-0">
+<!-- Studio Header Controls & Tool Pallet -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between shadow-md flex-wrap gap-2">
+<!-- Drawing Tools -->
+<div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg">
+<button class="p-1.5 rounded bg-primary-container text-on-primary-container shadow-sm flex items-center" title="Bounding Box (B)">
+<span class="material-symbols-outlined text-[18px]">crop_free</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors flex items-center" title="Polygon Segmentation (P)">
+<span class="material-symbols-outlined text-[18px]">polyline</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors flex items-center" title="Few-Shot Anomaly Mask">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors flex items-center" title="Golden Sample Heatmap Compare (H)">
+<span class="material-symbols-outlined text-[18px]">compare</span>
+</button>
+<div class="w-px h-5 bg-outline-variant mx-1"></div>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-secondary-fixed-dim transition-colors flex items-center" title="Edge Contrast Filter">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+<!-- Zoom / Resolution Telemetry -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1 font-telemetry-sm text-telemetry-sm bg-surface-container px-2 py-1 rounded text-outline">
+<span class="material-symbols-outlined text-[14px]">photo_size_select_actual</span>
+<span>4096 × 3000 RAW (12-bit Mono)</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
+<button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">remove</span></button>
+<span class="font-telemetry-sm text-telemetry-sm text-primary font-bold px-1">175%</span>
+<button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">add</span></button>
+</div>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-[18px]">fit_screen</span>
+</button>
+</div>
+</div>
+<!-- Main Visual Viewport with Bounding HUD Overlays -->
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest rounded-lg overflow-hidden shadow-2xl flex items-center justify-center group select-none">
+<!-- Synthetic Part Visual Feed Image -->
+<img class="w-full h-full object-cover filter contrast-125" data-alt="Ultra-high resolution industrial computer vision inspection top-down macro shot of a cast aluminum electric vehicle motor housing component under intense coaxial blue and white industrial LED lighting. Microscopic surface details, clean metallic reflections, razor sharp mechanical edges, dark factory background with precise metric calibration markings." src="images/img-6e72a6e454.jpg"/>
+<!-- High-Tech Reticle & Coordinate Crosshairs -->
+<div class="absolute inset-0 pointer-events-none">
+<!-- Fine grid lines -->
+<svg class="w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00f2fe" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+<!-- Center crosshair -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 pointer-events-none opacity-40">
+<div class="w-full h-px bg-primary-container absolute top-1/2"></div>
+<div class="h-full w-px bg-primary-container absolute left-1/2"></div>
+</div>
+</div>
+<!-- Bounding Box Annotation #1: Primary Defect (Micro Scratch) -->
+<div class="absolute top-[34%] left-[42%] w-[26%] h-[22%] pointer-events-auto transition-all cursor-move">
+<!-- Outer Box Stroke with Cyber Glow -->
+<div class="w-full h-full rounded-sm bg-primary-container/10 shadow-[0_0_16px_rgba(0,242,254,0.4)] relative">
+<!-- Corner Brackets -->
+<div class="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-primary-container"></div>
+<div class="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-primary-container"></div>
+<div class="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-primary-container"></div>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-primary-container"></div>
+<!-- Segmentation Overlay Graphic Simulation -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M 15 25 Q 45 40, 75 35 T 90 70" fill="none" stroke="#00f2fe" stroke-dasharray="4 2" stroke-width="2.5"></path>
+</svg>
+<!-- Anchor Defect Badge Tag -->
+<div class="absolute -top-6 left-0 bg-surface-container-lowest/90 backdrop-blur-md px-1.5 py-0.5 rounded shadow-lg flex items-center gap-1.5 whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary-container font-bold">#DEF-042 [Surface Scratch]</span>
+<span class="font-telemetry-sm text-telemetry-sm text-tertiary">99.4%</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">L: 1.28mm</span>
+</div>
+</div>
+</div>
+<!-- Bounding Box Annotation #2: Nominal Reference Feature (Golden Tolerant) -->
+<div class="absolute top-[65%] left-[18%] w-[18%] h-[18%] pointer-events-auto">
+<div class="w-full h-full rounded-sm bg-tertiary-container/5 relative">
+<div class="absolute -top-1 -left-1 w-2.5 h-2.5 border-t-2 border-l-2 border-tertiary-container"></div>
+<div class="absolute -bottom-1 -right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-tertiary-container"></div>
+<div class="absolute -top-5 left-0 bg-surface-container-lowest/90 px-1.5 py-0.5 rounded flex items-center gap-1">
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim">PIN #04 [NOMINAL]</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">Δ 0.01mm</span>
+</div>
+</div>
+</div>
+<!-- On-Screen Telemetry HUD Overlay (Top-Right) -->
+<div class="absolute top-space-md right-space-md bg-surface-container-lowest/85 backdrop-blur-md p-space-sm rounded-lg shadow-xl flex flex-col gap-1 pointer-events-none">
+<div class="flex items-center justify-between gap-space-md">
+<span class="font-label-caps text-label-caps text-outline">FRAME TRIGGER</span>
+<span class="font-telemetry-sm text-telemetry-sm text-tertiary font-bold">PLC SYNC #18492</span>
+</div>
+<div class="flex items-center justify-between gap-space-md">
+<span class="font-label-caps text-label-caps text-outline">INSPECTION LATENCY</span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary-container font-bold">28.4ms</span>
+</div>
+<div class="flex items-center justify-between gap-space-md">
+<span class="font-label-caps text-label-caps text-outline">OPC-UA NODE</span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface">192.168.10.14</span>
+</div>
+</div>
+<!-- On-Screen Bottom-Left Micro Scale Bar -->
+<div class="absolute bottom-space-md left-space-md bg-surface-container-lowest/85 backdrop-blur-md px-space-sm py-1 rounded shadow-lg flex items-center gap-space-sm pointer-events-none">
+<div class="w-12 h-1 bg-primary-container rounded"></div>
+<span class="font-telemetry-sm text-telemetry-sm text-primary-container">5.0 mm (48.2 px/mm)</span>
+</div>
+</div>
+<!-- Bottom Filmstrip / Dataset Batch Carousel -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-space-xs shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-outline">IMAGE STRIP: BATCH #08 (CAM 03)</span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface">Showing 8 of 1,280</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm">◀ PREV</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm">NEXT ▶</button>
+</div>
+</div>
+<!-- Filmstrip thumbnails -->
+<div class="grid grid-cols-4 sm:grid-cols-8 gap-1.5 pt-1">
+<!-- Thumb 1 (Active) -->
+<div class="relative aspect-video rounded overflow-hidden cursor-pointer shadow-[0_0_8px_rgba(0,242,254,0.4)]">
+<img class="w-full h-full object-cover" data-alt="Industrial metallic electric vehicle motor casing component macro view with defect annotation tag." src="images/img-e7a4922804.jpg"/>
+<span class="absolute bottom-0 right-0 px-1 bg-surface-container-lowest font-telemetry-sm text-[9px] text-error font-bold">DEFECT</span>
+</div>
+<!-- Thumb 2 -->
+<div class="relative aspect-video rounded overflow-hidden opacity-75 hover:opacity-100 cursor-pointer transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Golden sample flawless electric vehicle motor aluminum housing inspection view with uniform lighting." src="images/img-55d0027757.jpg"/>
+<span class="absolute bottom-0 right-0 px-1 bg-surface-container-lowest font-telemetry-sm text-[9px] text-tertiary">OK</span>
+</div>
+<!-- Thumb 3 -->
+<div class="relative aspect-video rounded overflow-hidden opacity-75 hover:opacity-100 cursor-pointer transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Close up metal casing with small burr defect highlighted under industrial camera." src="images/img-fc4fdf643a.jpg"/>
+<span class="absolute bottom-0 right-0 px-1 bg-surface-container-lowest font-telemetry-sm text-[9px] text-error">DEFECT</span>
+</div>
+<!-- Thumb 4 -->
+<div class="relative aspect-video rounded overflow-hidden opacity-75 hover:opacity-100 cursor-pointer transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Top down normal precision manufactured metallic component on conveyor belt." src="images/img-5984c5527c.jpg"/>
+<span class="absolute bottom-0 right-0 px-1 bg-surface-container-lowest font-telemetry-sm text-[9px] text-tertiary">OK</span>
+</div>
+<!-- Thumb 5 -->
+<div class="relative aspect-video rounded overflow-hidden opacity-75 hover:opacity-100 cursor-pointer transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Automated inspection camera perspective of motor casting baseline." src="images/img-9bf539913e.jpg"/>
+<span class="absolute bottom-0 right-0 px-1 bg-surface-container-lowest font-telemetry-sm text-[9px] text-tertiary">OK</span>
+</div>
+<!-- Thumb 6 -->
+<div class="relative aspect-video rounded overflow-hidden opacity-75 hover:opacity-100 cursor-pointer transition-opacity">
+<img class="w-full h-full object-cover" data-alt="High magnification inspection view of pin assembly defect." src="images/img-0b0b2b18e5.jpg"/>
+<span class="absolute bottom-0 right-0 px-1 bg-surface-container-lowest font-telemetry-sm text-[9px] text-error">DEFECT</span>
+</div>
+<!-- Thumb 7 -->
+<div class="relative aspect-video rounded overflow-hidden opacity-75 hover:opacity-100 cursor-pointer transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Flawless motor casing sample under angled 45 degree darkfield illumination." src="images/img-19018ce6a8.jpg"/>
+<span class="absolute bottom-0 right-0 px-1 bg-surface-container-lowest font-telemetry-sm text-[9px] text-tertiary">OK</span>
+</div>
+<!-- Thumb 8 -->
+<div class="relative aspect-video rounded overflow-hidden opacity-75 hover:opacity-100 cursor-pointer transition-opacity">
+<img class="w-full h-full object-cover" data-alt="EV precision component baseline test image showing clean threads." src="images/img-970622a70a.jpg"/>
+<span class="absolute bottom-0 right-0 px-1 bg-surface-container-lowest font-telemetry-sm text-[9px] text-tertiary">OK</span>
+</div>
+</div>
+</div>
+</main>
+<!-- RIGHT PANEL: Few-Shot Augmentation & Training Pipeline Dispatch (Col 3) -->
+<aside class="xl:col-span-3 flex flex-col gap-space-sm">
+<!-- Augmentation Parameters Module -->
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">auto_fix</span>
+<span class="font-title-sm text-title-sm text-on-surface">합성 증강 파이프라인 (Augment)</span>
+</div>
+<span class="font-label-caps text-label-caps px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary-fixed-dim">FEW-SHOT ENGINE</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+          인라인 환경 조명 변화 및 컨베이어 진동을 가상 시뮬레이션하여 5,120장의 고밀도 학습 샘플을 합성합니다.
+        </p>
+<!-- Slider 1: Industrial Lighting / Exposure -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface">조명 변동 시뮬레이션</span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary font-bold">±15% (Coaxial)</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container" style="width: 65%"></div>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">Dynamic Range Exp: 0.85x ~ 1.15x</span>
+</div>
+<!-- Slider 2: Conveyor Jitter / Micro Rotation -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface">컨베이어 위치 진동 (Jitter)</span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary font-bold">±5.0° / 3px</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container" style="width: 45%"></div>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">Conveyor Speed sync: 10 parts/sec</span>
+</div>
+<!-- Toggle: Specular Glare Suppression -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">금속 반사 글레어 자동 억제</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">Specular Glare Invariant Aug</span>
+</div>
+<!-- Cyber Toggle -->
+<div class="w-9 h-5 bg-primary-container rounded-full relative cursor-pointer p-0.5 flex items-center justify-end">
+<div class="w-4 h-4 bg-on-primary-container rounded-full shadow"></div>
+</div>
+</div>
+<!-- Toggle: Background Dust Injection -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">비정형 먼지/유류 오염 합성</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">Random Particle Noise Injection</span>
+</div>
+<div class="w-9 h-5 bg-surface-container-highest rounded-full relative cursor-pointer p-0.5 flex items-center justify-start">
+<div class="w-4 h-4 bg-outline rounded-full shadow"></div>
+</div>
+</div>
+</div>
+<!-- Target Model Preset Selection -->
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[18px]">memory</span>
+<span>타깃 비전 AI 모델 프리셋</span>
+</span>
+<span class="font-label-caps text-label-caps text-outline">TENSORRT READY</span>
+</div>
+<!-- Preset 1: PatchCore (Default Recommended for Few-shot) -->
+<div class="p-space-sm rounded bg-surface-container-high cursor-pointer shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-primary font-bold">PatchCore (비지도 이상치 탐지)</span>
+<span class="font-label-caps text-label-caps px-1 py-0.5 rounded bg-primary-container text-on-primary-container font-bold">추천 (FEW-SHOT)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            정상품 1,150장 기반 메모리 뱅크 구축. 불량 라벨 0개여도 미세 균열 및 스크래치 즉각 검출.
+          </p>
+<div class="mt-2 flex items-center gap-space-md font-telemetry-sm text-telemetry-sm text-outline">
+<span>크기: <strong class="text-on-surface">64MB</strong></span>
+<span>지연: <strong class="text-tertiary">22ms</strong></span>
+<span>INT8 양자화</span>
+</div>
+</div>
+<!-- Preset 2: YOLOv8-Small -->
+<div class="p-space-sm rounded bg-surface-container hover:bg-surface-container-high cursor-pointer transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface">YOLOv8-Small (멀티 결함 바운딩)</span>
+<span class="font-label-caps text-label-caps text-outline">CLASSIFIER</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-1">
+            5개 클래스 결함 동시 특정 및 정밀 좌표 반환.
+          </p>
+<div class="mt-2 flex items-center gap-space-md font-telemetry-sm text-telemetry-sm text-outline">
+<span>크기: 42MB</span>
+<span>지연: 18ms</span>
+<span>FP16</span>
+</div>
+</div>
+<!-- Preset 3: EfficientNet-Lite -->
+<div class="p-space-sm rounded bg-surface-container hover:bg-surface-container-high cursor-pointer transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface">EfficientNet-Lite (초경량 패스/페일)</span>
+<span class="font-label-caps text-label-caps text-outline">BINARY ONLY</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-1">
+            초고속 100 FPS 지원 초경량 엣지 바이너리 모델.
+          </p>
+<div class="mt-2 flex items-center gap-space-md font-telemetry-sm text-telemetry-sm text-outline">
+<span>크기: 28MB</span>
+<span>지연: 9.8ms</span>
+<span>INT8</span>
+</div>
+</div>
+</div>
+<!-- Start AutoML Training Pipeline Action Box -->
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-body-sm text-body-sm">
+<span class="text-outline">학습 파이프라인 예상 소요:</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-bold">18분 42초</span>
+</div>
+<div class="flex items-center justify-between text-body-sm text-body-sm">
+<span class="text-outline">타깃 엣지 디바이스:</span>
+<span class="font-telemetry-sm text-telemetry-sm text-tertiary">GPU PC #01~#10 (40 Cams)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm text-body-sm">
+<span class="text-outline">예상 F1-Score:</span>
+<span class="font-telemetry-md text-telemetry-md text-tertiary font-bold">99.85% (FNR ≤ 0.01%)</span>
+</div>
+<!-- Big Launch CTA Button -->
+<button class="w-full mt-1 py-3 px-space-md bg-primary-container text-on-primary-container hover:bg-primary-fixed rounded-lg font-headline-md text-headline-md font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(0,242,254,0.4)]">
+<span class="material-symbols-outlined text-[22px]">rocket_launch</span>
+<span>AutoML 맞춤 학습 가동</span>
+</button>
+<span class="font-telemetry-sm text-telemetry-sm text-center text-outline">
+          *승인 시 폐쇄망 DVC 레지스트리 커밋 및 분산 GPU 학습 개시
+        </span>
+</div>
+</aside>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-xl"><div class="w-full px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-md"><span class="font-title-sm text-title-sm text-primary">SynapseQC Physical AI</span><span class="font-telemetry-sm text-telemetry-sm text-outline">Firmware v4.8.2-edge</span></div><div class="font-label-caps text-label-caps text-outline tracking-wider">© 2025 SYNAPSEQC CORP. INDUSTRIAL AIR-GAPPED VISION SYSTEM. ALL RIGHTS RESERVED.</div><div class="flex items-center gap-space-lg"><span class="flex items-center gap-1 text-tertiary font-telemetry-sm text-telemetry-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>NODE CLUSTER SECURE</span></div></div></footer></body></html>

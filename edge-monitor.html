@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head><meta charset="utf-8"/><title>실시간 엣지 모니터링 콘솔 | SynapseQC</title><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary-container":"#67f4b7","outline-variant":"#3a494b","secondary-fixed-dim":"#89ceff","primary":"#e0fdff","outline":"#849495","on-surface":"#dfe2ee","on-background":"#dfe2ee","surface-container-low":"#181c24","on-error-container":"#ffdad6","on-primary-container":"#006a70","on-secondary-fixed-variant":"#004c6e","inverse-on-surface":"#2c3039","background":"#0f131c","surface-bright":"#353942","on-error":"#690005","on-tertiary-fixed":"#002113","surface-variant":"#31353e","primary-fixed":"#6ff6ff","secondary-fixed":"#c9e6ff","primary-container":"#00f2fe","surface-tint":"#00dce6","on-secondary-fixed":"#001e2f","error-container":"#93000a","surface":"#0f131c","inverse-primary":"#00696f","on-tertiary-container":"#006e4b","surface-container-highest":"#31353e","secondary-container":"#00a2e6","on-tertiary":"#003824","inverse-surface":"#dfe2ee","surface-container":"#1c2028","on-secondary-container":"#00344e","on-tertiary-fixed-variant":"#005236","surface-dim":"#0f131c","error":"#ffb4ab","secondary":"#89ceff","tertiary-fixed":"#6ffbbe","on-primary-fixed-variant":"#004f53","surface-container-high":"#262a33","on-surface-variant":"#b9cacb","on-primary-fixed":"#002022","primary-fixed-dim":"#00dce6","on-secondary":"#00344d","on-primary":"#00373a","surface-container-lowest":"#0a0e16","tertiary":"#e1ffec","tertiary-fixed-dim":"#4edea3"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1rem","space-xl":"1.5rem","space-xs":"0.25rem","space-lg":"1rem","space-md":"0.75rem","space-sm":"0.5rem","gutter":"0.75rem"},"fontFamily":{"headline-md":["Inter"],"telemetry-lg":["JetBrains Mono"],"telemetry-md":["JetBrains Mono"],"title-sm":["Inter"],"body-md":["Inter"],"label-caps":["JetBrains Mono"],"headline-lg":["Inter"],"headline-lg-mobile":["Inter"],"body-sm":["Inter"],"telemetry-sm":["JetBrains Mono"],"display-lg":["Inter"]},"fontSize":{"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}],"telemetry-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.03em","fontWeight":"700"}],"telemetry-md":["14px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-caps":["10px",{"lineHeight":"12px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"telemetry-sm":["11px",{"lineHeight":"14px","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><div class="flex items-center gap-space-sm"><img alt="SynapseQC Logo" class="h-8 w-auto object-contain" src="images/img-ee768685d3.jpg"/><span class="font-title-sm text-title-sm tracking-tight text-primary uppercase">SynapseQC</span><span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps">PHYSICAL AI</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(0,242,254,0.25)]"><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="overview" href="index.html">솔루션 소개</a><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="dataset-studio" href="dataset-studio.html">데이터셋 스튜디오</a><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="automl-pipeline" href="automl-pipeline.html">AutoML 파이프라인</a><a aria-current="page" class="px-space-md py-1.5 transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(0,242,254,0.25)]" data-path="edge-monitor" href="edge-monitor.html">실시간 엣지 모니터링</a></nav></div><div class="hidden lg:flex items-center gap-space-sm shrink-0"><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-tertiary font-telemetry-sm text-telemetry-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span><span>공장 폐쇄망 가동 중</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-primary font-medium">GPU PC:</span><span class="text-on-surface">10/10 정상</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-primary font-medium">CAM:</span><span class="text-on-surface">40/40 Online (10 FPS)</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-secondary-fixed-dim font-medium">지연:</span><span class="text-tertiary-fixed-dim font-semibold">28.4ms</span><span class="text-outline text-[10px]">(≤50ms)</span></div></div><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden md:flex flex-col text-right"><span class="font-title-sm text-title-sm text-on-surface leading-none">제1공장 엔지니어링팀</span><span class="font-label-caps text-label-caps text-tertiary-fixed-dim mt-0.5">MASTER OPERATOR</span></div><div class="relative"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-tertiary-container ring-2 ring-surface-container-lowest"></span></div></div></div></div></header><main class="w-full pt-16 bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- TOP TELEMETRY STRIP & KPI COCKPIT -->
+<section class="w-full bg-surface-container-lowest px-gutter py-space-sm border-b-0">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-sm">
+<!-- Line Status & Core Yield -->
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-ping"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest">LIVE INLINE</span>
+<span class="font-title-sm text-title-sm text-tertiary font-bold ml-1">LINE 1~3 ALL RUNNING</span>
+</div>
+<div class="h-4 w-px bg-outline-variant hidden sm:block"></div>
+<div class="flex items-center gap-space-sm font-telemetry-sm text-telemetry-sm">
+<span class="text-outline">금일 총 검사:</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-bold">284,920 <span class="text-[10px] text-outline font-normal">EA</span></span>
+</div>
+<div class="flex items-center gap-space-sm font-telemetry-sm text-telemetry-sm">
+<span class="text-tertiary-fixed-dim">양품:</span>
+<span class="font-telemetry-md text-telemetry-md text-tertiary font-bold">284,118 <span class="text-xs text-tertiary-fixed font-normal">(99.72%)</span></span>
+</div>
+<div class="flex items-center gap-space-sm font-telemetry-sm text-telemetry-sm bg-error-container/40 px-2 py-0.5 rounded">
+<span class="text-error font-medium">결함 검출:</span>
+<span class="font-telemetry-md text-telemetry-md text-error font-bold">802 <span class="text-xs text-error font-normal">(0.28%)</span></span>
+</div>
+</div>
+<!-- Latency & Network Security Air-Gap Badge -->
+<div class="flex flex-wrap items-center gap-space-md font-telemetry-sm text-telemetry-sm">
+<div class="flex items-center gap-1.5 bg-surface-container px-space-sm py-1 rounded">
+<span class="material-symbols-outlined text-[15px] text-secondary-fixed-dim">speed</span>
+<span class="text-on-surface-variant">추론 지연:</span>
+<span class="text-primary-container font-bold">28.1ms</span>
+<span class="text-outline text-[10px]">+ PLC 3.2ms (합계 31.3ms ≤ 50ms)</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-space-sm py-1 rounded">
+<span class="material-symbols-outlined text-[15px] text-tertiary-container">hub</span>
+<span class="text-on-surface-variant">HW 매트릭스:</span>
+<span class="text-tertiary font-bold">10/10 PC</span>
+<span class="text-outline">|</span>
+<span class="text-tertiary font-bold">40/40 GigE</span>
+<span class="text-tertiary-container text-[10px] font-semibold">(Drop 0)</span>
+</div>
+<div class="flex items-center gap-1 px-space-sm py-1 rounded bg-secondary-container/20 text-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span class="font-label-caps text-label-caps tracking-wider">AIR-GAPPED 100% SECURE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- MAIN MONITORING WORKSPACE: 3-PANE ASYMMETRIC COMMAND GRID -->
+<div class="w-full px-gutter py-space-md grid grid-cols-1 xl:grid-cols-12 gap-space-md">
+<!-- LEFT & CENTER PANE: 4-CAM INFERENCE DOCK & EDGE PC CONTROLLER (Col 8) -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<!-- Edge Selector & Camera Preset Navigation Bar -->
+<div class="w-full bg-surface-container-low p-space-sm rounded-lg flex flex-wrap items-center justify-between gap-space-sm shadow-md">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+<span class="font-label-caps text-label-caps text-outline tracking-wider uppercase px-2 shrink-0">EDGE NODES</span>
+<button class="px-space-md py-1 rounded bg-primary-container text-on-primary-container font-title-sm text-title-sm font-semibold flex items-center gap-1.5 shadow-[0_0_10px_rgba(0,242,254,0.35)] shrink-0">
+<span class="w-2 h-2 rounded-full bg-surface-container-lowest"></span>
+<span>EDGE-PC-01</span>
+<span class="font-label-caps text-[9px] bg-on-primary-container text-primary-container px-1 rounded ml-1">L1-A GEAR</span>
+</button>
+<button class="px-space-md py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm transition-colors shrink-0">
+            EDGE-PC-02 (L1-B)
+          </button>
+<button class="px-space-md py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm transition-colors shrink-0">
+            EDGE-PC-03 (L2-A)
+          </button>
+<button class="px-space-md py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm transition-colors shrink-0">
+            EDGE-PC-04 (L2-B)
+          </button>
+<button class="px-space-md py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm transition-colors shrink-0">
+            PC-05~10...
+          </button>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="font-telemetry-sm text-telemetry-sm text-outline hidden md:inline">INSPECTION FPS:</span>
+<span class="font-telemetry-md text-telemetry-md text-tertiary-container font-bold bg-surface-container-lowest px-2 py-0.5 rounded">40.0 FPS</span>
+<div class="flex items-center bg-surface-container-lowest rounded p-0.5 ml-2">
+<button class="p-1 rounded bg-surface-container-high text-primary"><span class="material-symbols-outlined text-[18px]">grid_view</span></button>
+<button class="p-1 rounded text-outline hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">fullscreen</span></button>
+</div>
+</div>
+</div>
+<!-- 4-CAMERA HIGH FREQUENCY INLINE VISION MATRIX (2x2 GRID) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- CAM 01: Top View (PASS) -->
+<div class="relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-lg group">
+<!-- Video HUD Header Bar -->
+<div class="absolute top-0 left-0 right-0 z-20 bg-surface-container-lowest/85 backdrop-blur-md px-space-md py-1.5 flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary font-bold">CAM 01 // 상단 평면 비전 (TOP VIEW)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-1.5 py-0.5 rounded bg-tertiary/20 text-tertiary-container font-label-caps text-label-caps font-bold">PASS 99.8%</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">26.2ms</span>
+</div>
+</div>
+<!-- Camera Feed Placeholder with Graphic Overlays -->
+<div class="relative h-64 w-full bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover opacity-85" data-alt="Macro optical close-up of a precision engineered stainless steel electric vehicle motor transmission gear under blue industrial laser ring illumination, showing teeth surface micro texture with crisp digital reticles and green measurement coordinates, high-tech industrial vision inspection aesthetic" src="images/img-9cb3553ddf.jpg"/>
+<!-- Reticle HUD & Bounding Box -->
+<div class="absolute inset-0 pointer-events-none p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start text-primary/60 font-telemetry-sm text-[10px]">
+<span>FOV: 84.5mm x 62.0mm</span>
+<span>EXP: 120μs | GAIN: 3.2dB</span>
+</div>
+<!-- Center Nominal Bounding Overlay -->
+<div class="mx-auto w-36 h-36 border-2 border-tertiary/60 relative flex items-center justify-center">
+<span class="absolute top-0 left-0 -mt-3.5 bg-surface-container-lowest/90 px-1 text-[9px] font-label-caps text-tertiary-container">GEAR_HUB_PASS [Δ 0.01mm]</span>
+<span class="w-2.5 h-0.5 bg-tertiary-container"></span>
+<span class="h-2.5 w-0.5 bg-tertiary-container absolute"></span>
+</div>
+<div class="flex justify-between items-end text-outline font-telemetry-sm text-[10px]">
+<span>TENSORRT_FP16_ENGINE</span>
+<span class="text-tertiary-container">CONFIDENCE: 0.998</span>
+</div>
+</div>
+</div>
+<!-- Live Telemetry Spark Dock -->
+<div class="bg-surface-container-low px-space-md py-1.5 flex items-center justify-between text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+<span>부품 식별 번호: #EVG-884210</span>
+<span class="text-tertiary font-medium">TRIGGER: NOMINAL PASS</span>
+</div>
+</div>
+<!-- CAM 02: Side Teeth View (ACTIVE DEFECT DETECTED - SCRATCH #04) -->
+<div class="relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_0_24px_rgba(239,68,68,0.35)] ring-2 ring-error group">
+<!-- Video HUD Header Bar -->
+<div class="absolute top-0 left-0 right-0 z-20 bg-error-container/90 backdrop-blur-md px-space-md py-1.5 flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-error-container font-bold">CAM 02 // 측면 기어 치형 (SIDE PROFILE)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-error text-surface-container-lowest font-label-caps text-label-caps font-extrabold animate-pulse">DEFECT DETECTED</span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-error-container font-bold">29.4ms</span>
+</div>
+</div>
+<!-- Camera Feed Placeholder with Graphic Overlays -->
+<div class="relative h-64 w-full bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Industrial computer vision camera view of a metallic cylindrical helical gear with a visible elongated micro crack scratch highlighted by an amber and red laser reticle bounding box, showing optical digital measurement crosshairs and reject telemetry tags in dark factory lighting" src="images/img-9728ed4824.jpg"/>
+<!-- Red Error Laser Coordinate Reticles -->
+<div class="absolute inset-0 pointer-events-none p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start text-error font-telemetry-sm text-[10px]">
+<span class="bg-surface-container-lowest/90 px-1 py-0.5 rounded">DEFECT_CLASS: [Surface Scratch #04]</span>
+<span class="bg-error text-surface-container-lowest px-1 py-0.5 rounded font-bold">EJECT SIGNAL ARMED</span>
+</div>
+<!-- Defect Bounding Box -->
+<div class="relative w-44 h-24 mx-auto border-2 border-error bg-error/10 shadow-[0_0_15px_rgba(239,68,68,0.5)] flex items-center justify-center">
+<div class="absolute -top-4 -left-1 bg-error text-surface-container-lowest px-1.5 py-0.2 rounded font-label-caps text-[9px] font-bold">
+                  SCRATCH_04: 98.9% (Len: 1.42mm &gt; 0.20mm)
+                </div>
+<!-- Crosshair Accent -->
+<div class="w-4 h-4 border border-error/70 rounded-full flex items-center justify-center">
+<div class="w-1.5 h-1.5 bg-error rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-between items-end font-telemetry-sm text-[10px]">
+<span class="text-error bg-surface-container-lowest/90 px-1 rounded">PLC TRIGGER: CHUTE #2 SOLENOID ON</span>
+<span class="text-on-error-container bg-error-container px-1 rounded font-bold">TOTAL TIME: 32.6ms</span>
+</div>
+</div>
+</div>
+<!-- Live Telemetry Alert Dock -->
+<div class="bg-error-container/30 px-space-md py-1.5 flex items-center justify-between text-on-error-container font-telemetry-sm text-telemetry-sm">
+<span class="font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-error">eject</span>
+              PLC Ejector #2 PULSE SENT (42ms 타임스탬프 동기화)
+            </span>
+<span class="text-error font-semibold underline cursor-pointer">스냅샷 저장됨</span>
+</div>
+</div>
+<!-- CAM 03: Inner Bore & Chamfer (PASS) -->
+<div class="relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-lg group">
+<div class="absolute top-0 left-0 right-0 z-20 bg-surface-container-lowest/85 backdrop-blur-md px-space-md py-1.5 flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary font-bold">CAM 03 // 내경 홀 및 챔퍼 (BORE &amp; INNER KEY)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-1.5 py-0.5 rounded bg-tertiary/20 text-tertiary-container font-label-caps text-label-caps font-bold">PASS 99.4%</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">27.0ms</span>
+</div>
+</div>
+<div class="relative h-64 w-full bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover opacity-85" data-alt="High precision machine vision macro view down the concentric bore hole of a dark steel mechanical component, surrounded by circular green alignment gauges and concentric telemetry rings, illuminated with darkfield ring lighting in an edge automation cell" src="images/img-3b1edf8c60.jpg"/>
+<div class="absolute inset-0 pointer-events-none p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start text-primary/60 font-telemetry-sm text-[10px]">
+<span>DIA: Ø 24.004mm (±0.015)</span>
+<span>CHAMFER: 45° 0.5mm</span>
+</div>
+<div class="mx-auto w-28 h-28 rounded-full border border-tertiary-container/50 border-dashed flex items-center justify-center">
+<span class="font-label-caps text-[9px] text-tertiary-container bg-surface-container-lowest/80 px-1">BORE_OK (0.994)</span>
+</div>
+<div class="flex justify-between items-end text-outline font-telemetry-sm text-[10px]">
+<span>PatchCore Anomaly Score: 0.041</span>
+<span class="text-tertiary-container">NOMINAL</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low px-space-md py-1.5 flex items-center justify-between text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+<span>부품 식별 번호: #EVG-884210</span>
+<span class="text-tertiary font-medium">TRIGGER: NOMINAL PASS</span>
+</div>
+</div>
+<!-- CAM 04: Bottom Seating & Spline (PASS) -->
+<div class="relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-lg group">
+<div class="absolute top-0 left-0 right-0 z-20 bg-surface-container-lowest/85 backdrop-blur-md px-space-md py-1.5 flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary font-bold">CAM 04 // 하부 안착면 및 스플라인 (BOTTOM SPLINE)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-1.5 py-0.5 rounded bg-tertiary/20 text-tertiary-container font-label-caps text-label-caps font-bold">PASS 99.6%</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">25.4ms</span>
+</div>
+</div>
+<div class="relative h-64 w-full bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover opacity-85" data-alt="Close up optical vision camera perspective showing machined bottom teeth spline of automotive gear with bright cyan measurement lines and digital inspection ticks, illuminated by high contrast strobe industrial lighting" src="images/img-641f1c2745.jpg"/>
+<div class="absolute inset-0 pointer-events-none p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start text-primary/60 font-telemetry-sm text-[10px]">
+<span>SPLINE TOOTH COUNT: 24/24</span>
+<span>PITCH ERROR: 0.002mm</span>
+</div>
+<div class="mx-auto w-32 h-32 border border-primary-container/40 relative flex items-center justify-center">
+<span class="absolute -bottom-3 bg-surface-container-lowest/90 px-1 text-[9px] font-label-caps text-primary-container">SPLINE_PROFILE_OK</span>
+</div>
+<div class="flex justify-between items-end text-outline font-telemetry-sm text-[10px]">
+<span>YOLOv8-Small-RT TensorRT</span>
+<span class="text-tertiary-container">CONFIDENCE: 0.996</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low px-space-md py-1.5 flex items-center justify-between text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+<span>부품 식별 번호: #EVG-884210</span>
+<span class="text-tertiary font-medium">TRIGGER: NOMINAL PASS</span>
+</div>
+</div>
+</div>
+<!-- IN-LINE EDGE WAVEFORM & LATENCY JITTER MONITOR (Realtime SVG Sparkline) -->
+<div class="w-full bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-xs shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-primary-container">monitoring</span>
+<span class="font-title-sm text-title-sm text-primary">실시간 추론 지연 파형 (Inference Latency Waveform - Past 600 Cycles)</span>
+</div>
+<div class="flex items-center gap-space-md font-telemetry-sm text-telemetry-sm">
+<span class="text-outline">임계 한계선: <span class="text-error font-semibold">50.0ms</span></span>
+<span class="text-outline">현재 피크: <span class="text-tertiary-container font-bold">34.8ms</span></span>
+<span class="text-outline">평균 지연: <span class="text-primary font-bold">28.1ms</span></span>
+</div>
+</div>
+<!-- Inline Waveform SVG -->
+<div class="w-full h-16 bg-surface-container-lowest rounded-lg p-2 relative overflow-hidden flex items-end">
+<!-- Baseline Grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between p-2 pointer-events-none opacity-20">
+<div class="w-full border-b border-error"></div>
+<div class="w-full border-b border-primary-container"></div>
+<div class="w-full border-b border-outline"></div>
+</div>
+<span class="absolute top-1 right-2 text-[9px] font-label-caps text-error">50ms REJECT THRESHOLD</span>
+<!-- Dynamic SVG Sparkline Waveform -->
+<svg class="w-full h-12 text-primary-container" fill="none" preserveaspectratio="none" viewbox="0 0 600 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,32 Q30,28 60,30 T120,29 T180,33 T240,26 T300,31 T360,28 T420,38 T480,27 T540,31 T600,29" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+<path d="M0,32 Q30,28 60,30 T120,29 T180,33 T240,26 T300,31 T360,28 T420,38 T480,27 T540,31 T600,29 L600,60 L0,60 Z" fill="currentColor" fill-opacity="0.12"></path>
+<!-- Spike node for Cam 02 Defect -->
+<circle class="fill-error stroke-surface-container-lowest" cx="420" cy="38" r="3.5" stroke-width="1.5"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- RIGHT PANE: REAL-TIME DEFECT REJECTION TIMELINE & EDGE HARDWARE RACK (Col 4) -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- RECENT DEFECT STREAM & REJECTION TIMELINE -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/30">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-title-sm text-title-sm text-primary">실시간 불량 배출 로그</span>
+<span class="font-label-caps text-[10px] bg-error-container text-on-error-container px-1.5 py-0.2 rounded font-bold">LIVE REJECTIONS</span>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">최근 15분</span>
+</div>
+<div class="flex flex-col gap-space-sm max-h-[380px] overflow-y-auto pr-1">
+<!-- Defect Card 1: Active Focus (Cam 02) -->
+<div class="p-space-sm rounded-lg bg-surface-container-high/80 border-l-4 border-error flex gap-space-sm hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="w-20 h-20 rounded bg-surface-container-lowest overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Microscopic inspection photograph of a deep surface scratch flaw on steel gear teeth with red highlighted bounding box and detection coordinates, factory QC vision system snapshot" src="images/img-f5ec23fead.jpg"/>
+<span class="absolute bottom-0 inset-x-0 bg-error/90 text-surface-container-lowest font-label-caps text-[8px] text-center font-bold">CAM 02</span>
+</div>
+<div class="flex flex-col justify-between flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-error font-bold tracking-wide">SURFACE SCRATCH #04</span>
+<span class="font-telemetry-sm text-[10px] text-outline">14:32:08.412</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface truncate">Line 1 · 챔퍼 경계면 스크래치 (길이 1.42mm)</p>
+<div class="flex items-center justify-between font-telemetry-sm text-telemetry-sm">
+<span class="text-tertiary-fixed-dim">신뢰도: <span class="font-bold text-primary">98.9%</span></span>
+<span class="text-error font-medium bg-error/15 px-1.5 py-0.5 rounded text-[10px]">Chute 2 배출</span>
+</div>
+</div>
+</div>
+<!-- Defect Card 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container flex gap-space-sm hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="w-20 h-20 rounded bg-surface-container-lowest overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="High resolution automated optical defect macro photo of a bent pressed alignment pin on an automotive transmission sub-assembly, red defect circle, high contrast industrial illumination" src="images/img-6b03f804d0.jpg"/>
+<span class="absolute bottom-0 inset-x-0 bg-surface-container-highest/90 text-on-surface font-label-caps text-[8px] text-center font-bold">CAM 14</span>
+</div>
+<div class="flex flex-col justify-between flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary-fixed-dim font-bold tracking-wide">PIN DEFORMATION #02</span>
+<span class="font-telemetry-sm text-[10px] text-outline">14:31:45.890</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface truncate">Line 2 · 압입 핀 각도 틀어짐 (편차 0.38mm)</p>
+<div class="flex items-center justify-between font-telemetry-sm text-telemetry-sm">
+<span class="text-tertiary-fixed-dim">신뢰도: <span class="font-bold text-primary">99.2%</span></span>
+<span class="text-secondary-fixed font-medium bg-secondary/15 px-1.5 py-0.5 rounded text-[10px]">Robot Arm 회수</span>
+</div>
+</div>
+</div>
+<!-- Defect Card 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container flex gap-space-sm hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="w-20 h-20 rounded bg-surface-container-lowest overflow-hidden shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Industrial machine vision inspection thumbnail showing dark lubricant oil contamination stain on metallic bearing ring surface with amber defect marker reticle" src="images/img-f0979bc04e.jpg"/>
+<span class="absolute bottom-0 inset-x-0 bg-surface-container-highest/90 text-on-surface font-label-caps text-[8px] text-center font-bold">CAM 31</span>
+</div>
+<div class="flex flex-col justify-between flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary font-bold tracking-wide">OIL CONTAMINATION</span>
+<span class="font-telemetry-sm text-[10px] text-outline">14:29:12.104</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface truncate">Line 3 · 베어링 안착면 잔류 오일 오염</p>
+<div class="flex items-center justify-between font-telemetry-sm text-telemetry-sm">
+<span class="text-tertiary-fixed-dim">신뢰도: <span class="font-bold text-primary">96.4%</span></span>
+<span class="text-primary font-medium bg-primary/10 px-1.5 py-0.5 rounded text-[10px]">Air Blower 배출</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full pt-1">
+<button class="w-full py-1.5 rounded bg-surface-container-highest hover:bg-surface-variant text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>불량 로그 아카이브 전체보기 (USB 백업)</span>
+</button>
+</div>
+</div>
+<!-- EDGE HARDWARE 10-NODE MATRIX & PLC TELEMETRY RACK -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">developer_board</span>
+<span class="font-title-sm text-title-sm text-primary">10대 엣지 GPU PC 클러스터 상태</span>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim bg-tertiary/10 px-1.5 py-0.5 rounded">ALL HEALTHY</span>
+</div>
+<!-- 10-Edge PC Micro Grid -->
+<div class="grid grid-cols-5 gap-1.5 text-center">
+<div class="p-1.5 rounded bg-surface-container-highest flex flex-col gap-0.5 ring-1 ring-primary-container">
+<span class="font-label-caps text-[9px] text-primary-container font-bold">PC-01</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary">54°C</span>
+<div class="w-full bg-surface-container-lowest h-1 rounded overflow-hidden mt-0.5">
+<div class="bg-primary-container h-full w-[65%]"></div>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-[9px] text-on-surface-variant">PC-02</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary">52°C</span>
+<div class="w-full bg-surface-container-lowest h-1 rounded overflow-hidden mt-0.5">
+<div class="bg-tertiary-container h-full w-[60%]"></div>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-[9px] text-on-surface-variant">PC-03</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary">56°C</span>
+<div class="w-full bg-surface-container-lowest h-1 rounded overflow-hidden mt-0.5">
+<div class="bg-tertiary-container h-full w-[70%]"></div>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-[9px] text-on-surface-variant">PC-04</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary">51°C</span>
+<div class="w-full bg-surface-container-lowest h-1 rounded overflow-hidden mt-0.5">
+<div class="bg-tertiary-container h-full w-[58%]"></div>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-[9px] text-on-surface-variant">PC-05</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary">53°C</span>
+<div class="w-full bg-surface-container-lowest h-1 rounded overflow-hidden mt-0.5">
+<div class="bg-tertiary-container h-full w-[62%]"></div>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-[9px] text-on-surface-variant">PC-06</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary">55°C</span>
+<div class="w-full bg-surface-container-lowest h-1 rounded overflow-hidden mt-0.5">
+<div class="bg-tertiary-container h-full w-[66%]"></div>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-[9px] text-on-surface-variant">PC-07</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary">49°C</span>
+<div class="w-full bg-surface-container-lowest h-1 rounded overflow-hidden mt-0.5">
+<div class="bg-tertiary-container h-full w-[50%]"></div>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-[9px] text-on-surface-variant">PC-08</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary">53°C</span>
+<div class="w-full bg-surface-container-lowest h-1 rounded overflow-hidden mt-0.5">
+<div class="bg-tertiary-container h-full w-[60%]"></div>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-[9px] text-on-surface-variant">PC-09</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary">54°C</span>
+<div class="w-full bg-surface-container-lowest h-1 rounded overflow-hidden mt-0.5">
+<div class="bg-tertiary-container h-full w-[64%]"></div>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-[9px] text-on-surface-variant">PC-10</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary">52°C</span>
+<div class="w-full bg-surface-container-lowest h-1 rounded overflow-hidden mt-0.5">
+<div class="bg-tertiary-container h-full w-[59%]"></div>
+</div>
+</div>
+</div>
+<!-- PC-01 Detail Telemetry Panel -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col gap-space-xs font-telemetry-sm text-telemetry-sm">
+<div class="flex items-center justify-between text-outline">
+<span>ACTIVE FOCUS: <span class="text-primary font-bold">EDGE-PC-01 (RTX 4000 Ada SFF)</span></span>
+<span class="text-tertiary font-bold">LOAD: 28%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<div class="flex flex-col">
+<span class="text-[10px] text-outline">VRAM ALLOCATION</span>
+<span class="text-primary font-bold">4.2 GB <span class="text-outline font-normal">/ 16.0 GB</span></span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-outline">PLC PROTOCOL LINK</span>
+<span class="text-tertiary font-bold">Modbus TCP (1.1ms)</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-outline">DIGITAL I/O TRIGGER</span>
+<span class="text-tertiary font-bold">4-Channel High-Speed Opto</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-outline">RUNTIME KERNEL</span>
+<span class="text-primary font-bold">Ubuntu Realtime 22.04</span>
+</div>
+</div>
+</div>
+<!-- Emergency Control & Operational Sensitivity Overrides -->
+<div class="flex flex-col gap-space-sm pt-1">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface">불량 판정 임계치 (Threshold)</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-bold" id="thresh-val">0.85 (권장)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<input class="w-full accent-primary-container cursor-pointer" id="thresh-slider" max="0.99" min="0.70" step="0.01" type="range" value="0.85"/>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-2">
+<button class="px-space-sm py-2 rounded bg-surface-container-highest hover:bg-surface-variant text-on-surface font-title-sm text-title-sm flex items-center justify-center gap-1.5 transition-colors" id="pause-btn">
+<span class="material-symbols-outlined text-[18px]">pause_circle</span>
+<span id="pause-text">검사 일시정지</span>
+</button>
+<button class="px-space-sm py-2 rounded bg-error text-surface-container-lowest font-title-sm text-title-sm font-bold flex items-center justify-center gap-1.5 hover:opacity-90 shadow-[0_0_12px_rgba(239,68,68,0.4)] transition-opacity">
+<span class="material-symbols-outlined text-[18px]">emergency</span>
+<span>배출기 강제 리셋</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- BOTTOM KPI IMPACT & SYSTEM CAPABILITIES ACCORDION STRIP -->
+<section class="w-full px-gutter pb-space-lg pt-space-xs">
+<div class="w-full bg-surface-container-low rounded-xl p-space-md grid grid-cols-1 md:grid-cols-4 gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-primary font-semibold">불량 유출률 (False Neg.)</span>
+<span class="font-telemetry-lg text-telemetry-lg text-tertiary font-bold">0.00% <span class="text-xs text-outline font-normal">/ 목표 ≤ 0.01%</span></span>
+<span class="font-body-sm text-body-sm text-outline">미검률 제로 달성 (Zero Escape)</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined">filter_tilt_shift</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-primary font-semibold">과검률 (False Pos.)</span>
+<span class="font-telemetry-lg text-telemetry-lg text-secondary-fixed font-bold">0.24% <span class="text-xs text-outline font-normal">/ 허용 ≤ 0.50%</span></span>
+<span class="font-body-sm text-body-sm text-outline">정상품 오배출 최소화 제어</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined">timer</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-primary font-semibold">판정 파이프라인 지연</span>
+<span class="font-telemetry-lg text-telemetry-lg text-tertiary-container font-bold">31.3ms <span class="text-xs text-outline font-normal">/ 기준 50.0ms</span></span>
+<span class="font-body-sm text-body-sm text-outline">초당 10개 완벽 동기화</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined">savings</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-primary font-semibold">연간 예상 절감 (ROI)</span>
+<span class="font-telemetry-lg text-telemetry-lg text-primary font-bold">약 3.2억 원 <span class="text-xs text-outline font-normal">/ 7개월 회수</span></span>
+<span class="font-body-sm text-body-sm text-outline">육안 검사원 6명 대체 및 폐쇄망 TCO 절감</span>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE CLIENT-SIDE LOGIC -->
+<script>
+    (function() {
+      // Threshold slider interactive indicator
+      const slider = document.getElementById('thresh-slider');
+      const valDisplay = document.getElementById('thresh-val');
+      if (slider && valDisplay) {
+        slider.addEventListener('input', function(e) {
+          valDisplay.textContent = parseFloat(e.target.value).toFixed(2);
+        });
+      }
+
+      // Inspection Pause Toggle button
+      const pauseBtn = document.getElementById('pause-btn');
+      const pauseText = document.getElementById('pause-text');
+      let isPaused = false;
+      if (pauseBtn && pauseText) {
+        pauseBtn.addEventListener('click', function() {
+          isPaused = !isPaused;
+          if (isPaused) {
+            pauseText.textContent = '검사 재개 (Resume)';
+            pauseBtn.classList.remove('bg-surface-container-highest');
+            pauseBtn.classList.add('bg-error/20', 'text-error');
+          } else {
+            pauseText.textContent = '검사 일시정지';
+            pauseBtn.classList.remove('bg-error/20', 'text-error');
+            pauseBtn.classList.add('bg-surface-container-highest');
+          }
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-xl"><div class="w-full px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-md"><span class="font-title-sm text-title-sm text-primary">SynapseQC Physical AI</span><span class="font-telemetry-sm text-telemetry-sm text-outline">Firmware v4.8.2-edge</span></div><div class="font-label-caps text-label-caps text-outline tracking-wider">© 2025 SYNAPSEQC CORP. INDUSTRIAL AIR-GAPPED VISION SYSTEM. ALL RIGHTS RESERVED.</div><div class="flex items-center gap-space-lg"><span class="flex items-center gap-1 text-tertiary font-telemetry-sm text-telemetry-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>NODE CLUSTER SECURE</span></div></div></footer></body></html>

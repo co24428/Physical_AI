@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head><meta charset="utf-8"/><title>AutoML 모델 학습 파이프라인 | SynapseQC</title><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary-container":"#67f4b7","outline-variant":"#3a494b","secondary-fixed-dim":"#89ceff","primary":"#e0fdff","outline":"#849495","on-surface":"#dfe2ee","on-background":"#dfe2ee","surface-container-low":"#181c24","on-error-container":"#ffdad6","on-primary-container":"#006a70","on-secondary-fixed-variant":"#004c6e","inverse-on-surface":"#2c3039","background":"#0f131c","surface-bright":"#353942","on-error":"#690005","on-tertiary-fixed":"#002113","surface-variant":"#31353e","primary-fixed":"#6ff6ff","secondary-fixed":"#c9e6ff","primary-container":"#00f2fe","surface-tint":"#00dce6","on-secondary-fixed":"#001e2f","error-container":"#93000a","surface":"#0f131c","inverse-primary":"#00696f","on-tertiary-container":"#006e4b","surface-container-highest":"#31353e","secondary-container":"#00a2e6","on-tertiary":"#003824","inverse-surface":"#dfe2ee","surface-container":"#1c2028","on-secondary-container":"#00344e","on-tertiary-fixed-variant":"#005236","surface-dim":"#0f131c","error":"#ffb4ab","secondary":"#89ceff","tertiary-fixed":"#6ffbbe","on-primary-fixed-variant":"#004f53","surface-container-high":"#262a33","on-surface-variant":"#b9cacb","on-primary-fixed":"#002022","primary-fixed-dim":"#00dce6","on-secondary":"#00344d","on-primary":"#00373a","surface-container-lowest":"#0a0e16","tertiary":"#e1ffec","tertiary-fixed-dim":"#4edea3"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1rem","space-xl":"1.5rem","space-xs":"0.25rem","space-lg":"1rem","space-md":"0.75rem","space-sm":"0.5rem","gutter":"0.75rem"},"fontFamily":{"headline-md":["Inter"],"telemetry-lg":["JetBrains Mono"],"telemetry-md":["JetBrains Mono"],"title-sm":["Inter"],"body-md":["Inter"],"label-caps":["JetBrains Mono"],"headline-lg":["Inter"],"headline-lg-mobile":["Inter"],"body-sm":["Inter"],"telemetry-sm":["JetBrains Mono"],"display-lg":["Inter"]},"fontSize":{"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}],"telemetry-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.03em","fontWeight":"700"}],"telemetry-md":["14px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-caps":["10px",{"lineHeight":"12px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"telemetry-sm":["11px",{"lineHeight":"14px","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><div class="flex items-center gap-space-sm"><img alt="SynapseQC Logo" class="h-8 w-auto object-contain" src="images/img-ee768685d3.jpg"/><span class="font-title-sm text-title-sm tracking-tight text-primary uppercase">SynapseQC</span><span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps">PHYSICAL AI</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(0,242,254,0.25)]"><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="overview" href="index.html">솔루션 소개</a><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="dataset-studio" href="dataset-studio.html">데이터셋 스튜디오</a><a aria-current="page" class="px-space-md py-1.5 transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(0,242,254,0.25)]" data-path="automl-pipeline" href="automl-pipeline.html">AutoML 파이프라인</a><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="edge-monitor" href="edge-monitor.html">실시간 엣지 모니터링</a></nav></div><div class="hidden lg:flex items-center gap-space-sm shrink-0"><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-tertiary font-telemetry-sm text-telemetry-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span><span>공장 폐쇄망 가동 중</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-primary font-medium">GPU PC:</span><span class="text-on-surface">10/10 정상</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-primary font-medium">CAM:</span><span class="text-on-surface">40/40 Online (10 FPS)</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-secondary-fixed-dim font-medium">지연:</span><span class="text-tertiary-fixed-dim font-semibold">28.4ms</span><span class="text-outline text-[10px]">(≤50ms)</span></div></div><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden md:flex flex-col text-right"><span class="font-title-sm text-title-sm text-on-surface leading-none">제1공장 엔지니어링팀</span><span class="font-label-caps text-label-caps text-tertiary-fixed-dim mt-0.5">MASTER OPERATOR</span></div><div class="relative"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-tertiary-container ring-2 ring-surface-container-lowest"></span></div></div></div></div></header><main class="w-full pt-16 bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Sub-Header Status Ribbon -->
+<div class="w-full bg-surface-container-lowest px-gutter py-space-sm shadow-[0_1px_4px_rgba(0,0,0,0.4)]">
+<div class="w-full flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span>AUTOO-ML PIPELINE RUNNER</span>
+<span class="text-outline">/</span>
+<span class="text-primary font-telemetry-sm">JOB-ID: 202610-PCORE-V24</span>
+</div>
+<div class="h-3.5 w-px bg-surface-variant"></div>
+<div class="flex items-center gap-1.5 text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">verified_user</span>
+<span class="font-title-sm text-title-sm text-primary">에어갭 폐쇄망 안전 배포 파이프라인</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="px-space-sm py-1 rounded bg-surface-container font-telemetry-sm text-telemetry-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="text-outline">TARGET:</span>
+<span class="text-primary">RTX 엣지 PC (10대)</span>
+</div>
+<div class="px-space-sm py-1 rounded bg-surface-container font-telemetry-sm text-telemetry-sm text-tertiary flex items-center gap-1.5">
+<span class="text-outline">SLA RUNTIME:</span>
+<span class="font-telemetry-md text-tertiary-container">21h 38m / ≤24h</span>
+</div>
+<button class="p-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface transition-colors" id="refresh-state-btn" title="상태 새로고침">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full p-gutter flex flex-col gap-space-lg">
+<!-- Top Hero Metric / Banner Row -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-lg shadow-md relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-gradient-to-br from-primary-container/10 via-tertiary-container/5 to-transparent blur-3xl pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg relative z-10">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-caps text-label-caps tracking-widest uppercase">ENGINE v2.4</span>
+<span class="text-on-surface-variant font-telemetry-sm text-telemetry-sm">PatchCore + MobileNetV4 TensorRT-INT8</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">AutoML 모델 학습 &amp; 벤치마킹 엔진</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            소량의 정상/불량 데이터셋(6,400장 증강 완료) 기반으로 24시간 내 자동 파인튜닝, 100MB 미만 초경량화, TensorRT 엔진 컴파일을 거쳐 현장 배포 가용성을 검증합니다.
+          </p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-md shrink-0">
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col gap-0.5">
+<span class="font-label-caps text-label-caps text-outline">미검률 (FNR)</span>
+<span class="font-telemetry-lg text-telemetry-lg text-tertiary-fixed-dim">0.003%</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">PRD ≤ 0.01%</span>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col gap-0.5">
+<span class="font-label-caps text-label-caps text-outline">추론 지연 (LATENCY)</span>
+<span class="font-telemetry-lg text-telemetry-lg text-primary">27.6ms</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">PRD ≤ 50.0ms</span>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col gap-0.5">
+<span class="font-label-caps text-label-caps text-outline">바이너리 용량</span>
+<span class="font-telemetry-lg text-telemetry-lg text-secondary-fixed-dim">68.4MB</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">PRD ≤ 100MB</span>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col gap-0.5">
+<span class="font-label-caps text-label-caps text-outline">CAM THROUGHPUT</span>
+<span class="font-telemetry-lg text-telemetry-lg text-tertiary-container">12.4 FPS</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">PRD ≥ 10 FPS</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 1. Pipeline Execution Stepper -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">AutoML 파이프라인 단계별 진행 상태</h2>
+</div>
+<div class="flex items-center gap-space-sm font-telemetry-sm text-telemetry-sm">
+<span class="text-outline">전체 진척률:</span>
+<span class="text-primary font-semibold">92.4%</span>
+<span class="text-tertiary-container font-label-caps bg-surface-container-high px-1.5 py-0.5 rounded">INT8 COMPILE ACTIVE</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-space-sm">
+<!-- Step 1 -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col justify-between gap-space-sm relative overflow-hidden">
+<div class="w-full flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim">STEP 01</span>
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">check_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">데이터 검증 &amp; 증강</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">6,400장 합성 완료</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full w-full"></div>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">소요시간: 01h 42m</span>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col justify-between gap-space-sm relative overflow-hidden">
+<div class="w-full flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim">STEP 02</span>
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">check_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">아키텍처 가중치 튜닝</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PatchCore + MobileNetV4</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full w-full"></div>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">소요시간: 16h 15m</span>
+</div>
+<!-- Step 3 (Active) -->
+<div class="bg-surface-container-high p-space-md rounded-lg flex flex-col justify-between gap-space-sm relative shadow-[0_0_12px_rgba(0,242,254,0.15)]">
+<div class="w-full flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary-fixed-dim">STEP 03 (ING)</span>
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-primary">TensorRT INT8 양자화</span>
+<span class="font-body-sm text-body-sm text-on-surface">엔진 컴파일 (92% 완료)</span>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[92%] transition-all duration-500"></div>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-secondary-fixed-dim">남은 시간: ~00:04:12</span>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col justify-between gap-space-sm opacity-90">
+<div class="w-full flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline">STEP 04</span>
+<span class="material-symbols-outlined text-outline text-[18px]">pending</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">엣지 PC 벤치마킹</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">10대 분산 시뮬레이션 준비</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed-dim h-full w-0"></div>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">대기 상태 (Ready)</span>
+</div>
+<!-- Step 5 -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col justify-between gap-space-sm opacity-90">
+<div class="w-full flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline">STEP 05</span>
+<span class="material-symbols-outlined text-outline text-[18px]">lock_clock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">온프레미스 배포 승인</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">마스터 서명 대기</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-0"></div>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">보안 승인 필요</span>
+</div>
+</div>
+</div>
+<!-- Main Content 2-Column Split: Benchmarks & Convergence Telemetry -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Left Column (col-7): Training Curves, Loss Convergence & Visual Verification -->
+<div class="xl:col-span-7 flex flex-col gap-space-lg">
+<!-- Convergence Graph Card -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">ssid_chart</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">실시간 손실 함수 수렴 곡선 (Loss Curve)</h3>
+</div>
+<div class="flex items-center gap-space-md font-telemetry-sm text-telemetry-sm">
+<span class="flex items-center gap-1.5 text-primary">
+<span class="w-2.5 h-0.5 bg-primary-container"></span> Train Loss: 0.0142
+              </span>
+<span class="flex items-center gap-1.5 text-tertiary-container">
+<span class="w-2.5 h-0.5 bg-tertiary-container"></span> Val Loss: 0.0178
+              </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps">EPOCH 48/50</span>
+</div>
+</div>
+<!-- Inline SVG Loss Convergence Graph -->
+<div class="w-full bg-surface-container-lowest rounded-lg p-space-md relative overflow-hidden">
+<div class="flex items-center justify-between text-outline font-telemetry-sm text-telemetry-sm mb-1">
+<span>0.100 Loss</span>
+<span>수렴 임계값 (≤ 0.020) 달성 확인</span>
+</div>
+<svg class="w-full h-52 stroke-current" viewbox="0 0 700 220">
+<!-- Grid lines -->
+<line stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3" x1="40" x2="680" y1="20" y2="20"></line>
+<line stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3" x1="40" x2="680" y1="70" y2="70"></line>
+<line stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3" x1="40" x2="680" y1="120" y2="120"></line>
+<line stroke="rgba(255,255,255,0.06)" stroke-dasharray="3 3" x1="40" x2="680" y1="170" y2="170"></line>
+<line stroke="rgba(255,255,255,0.12)" x1="40" x2="680" y1="200" y2="200"></line>
+<!-- Vertical Epoch Markers -->
+<line stroke="rgba(255,255,255,0.12)" x1="40" x2="40" y1="20" y2="200"></line>
+<line stroke="rgba(255,255,255,0.04)" x1="200" x2="200" y1="20" y2="200"></line>
+<line stroke="rgba(255,255,255,0.04)" x1="360" x2="360" y1="20" y2="200"></line>
+<line stroke="rgba(255,255,255,0.04)" x1="520" x2="520" y1="20" y2="200"></line>
+<line stroke="rgba(255,255,255,0.04)" x1="680" x2="680" y1="20" y2="200"></line>
+<!-- Axis Text -->
+<text class="font-telemetry-sm text-[10px]" fill="#849495" x="15" y="24">0.10</text>
+<text class="font-telemetry-sm text-[10px]" fill="#849495" x="15" y="124">0.04</text>
+<text class="font-telemetry-sm text-[10px]" fill="#849495" x="15" y="174">0.02</text>
+<text class="font-telemetry-sm text-[10px]" fill="#849495" x="15" y="202">0.00</text>
+<text class="font-telemetry-sm text-[10px]" fill="#849495" x="40" y="214">Ep 0</text>
+<text class="font-telemetry-sm text-[10px]" fill="#849495" x="200" y="214">Ep 15</text>
+<text class="font-telemetry-sm text-[10px]" fill="#849495" x="360" y="214">Ep 30</text>
+<text class="font-telemetry-sm text-[10px]" fill="#849495" x="520" y="214">Ep 40</text>
+<text class="font-telemetry-sm text-[10px]" fill="#00f2fe" x="650" y="214">Ep 48</text>
+<!-- Convergence Threshold Band (0.02) -->
+<rect fill="rgba(103,244,183,0.04)" height="15" width="640" x="40" y="165"></rect>
+<!-- Train Loss Path -->
+<path d="M 40 40 Q 120 140, 200 152 T 360 168 T 520 178 L 655 182" fill="none" stroke="#00f2fe" stroke-width="2.5"></path>
+<!-- Validation Loss Path -->
+<path d="M 40 55 Q 120 150, 200 160 T 360 172 T 520 180 L 655 184" fill="none" stroke="#67f4b7" stroke-dasharray="4 2" stroke-width="2"></path>
+<!-- Active Head Marker -->
+<circle class="animate-pulse" cx="655" cy="182" fill="#00f2fe" r="4"></circle>
+<circle cx="655" cy="184" fill="#67f4b7" r="3"></circle>
+</svg>
+<div class="flex items-center justify-between text-on-surface-variant font-telemetry-sm text-telemetry-sm mt-2">
+<span class="text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+                Overfitting 경향 없음 (Val-Train Gap: 0.0036)
+              </span>
+<span class="text-outline">Learning Rate: 2.5e-4 (CosineAnnealingLR)</span>
+</div>
+</div>
+</div>
+<!-- Confusion Matrix & Precision-Recall Split -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Confusion Matrix (6,400 Validated Samples) -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">grid_view</span>
+                혼동 행렬 (Confusion Matrix)
+              </span>
+<span class="font-label-caps text-label-caps text-outline">N = 6,400</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1.5">
+<div class="grid grid-cols-3 text-center font-label-caps text-label-caps text-outline pb-1">
+<span>실제 \ 예측</span>
+<span>정상 (OK)</span>
+<span>불량 (NG)</span>
+</div>
+<div class="grid grid-cols-3 items-center gap-1.5 text-center font-telemetry-md text-telemetry-md">
+<span class="text-outline text-left font-body-sm">실제 정상</span>
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="text-tertiary-container font-bold">5,789</span>
+<span class="font-label-caps text-label-caps text-outline">TN (99.82%)</span>
+</div>
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="text-secondary font-bold">11</span>
+<span class="font-label-caps text-label-caps text-secondary-fixed-dim">FP: 0.18% (과검)</span>
+</div>
+</div>
+<div class="grid grid-cols-3 items-center gap-1.5 text-center font-telemetry-md text-telemetry-md">
+<span class="text-outline text-left font-body-sm">실제 불량</span>
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="text-error font-bold">0</span>
+<span class="font-label-caps text-label-caps text-error">FN: 0.00% (유출 0건)</span>
+</div>
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="text-tertiary font-bold">600</span>
+<span class="font-label-caps text-label-caps text-outline">TP (100.0%)</span>
+</div>
+</div>
+</div>
+<div class="text-tertiary-fixed-dim font-telemetry-sm text-telemetry-sm flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">check</span>
+              미검 0건 달성 (불량 통과율 0.000%)
+            </div>
+</div>
+<!-- High-Res Inspection Sample Preview -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container">center_focus_strong</span>
+                추론 히트맵 &amp; 결함 마스크
+              </span>
+<span class="px-1.5 py-0.5 rounded bg-tertiary-container/10 text-tertiary-container font-label-caps text-label-caps">TOLERANCE OK</span>
+</div>
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover opacity-80" data-alt="High precision industrial macro inspection view of precision metal machining bearing with micro-scratch defect detection heatmap overlaid with cyan and emerald luminescence in a dark air-gapped factory laboratory setting" src="images/img-e0eb52ef8a.jpg"/>
+<!-- Emissive Bounding Box & HUD overlay -->
+<div class="absolute inset-4 rounded pointer-events-none flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="bg-surface-container-lowest/90 px-1.5 py-0.5 rounded font-label-caps text-label-caps text-primary shadow-sm">
+                    DEFECT: PINHOLE [99.7%]
+                  </span>
+<span class="bg-surface-container-lowest/90 px-1.5 py-0.5 rounded font-telemetry-sm text-telemetry-sm text-tertiary-container">
+                    Δ 0.012mm
+                  </span>
+</div>
+<div class="flex items-center justify-between text-outline font-label-caps text-label-caps">
+<span>CAM-04 (LINE 1)</span>
+<span>INFERENCE: 27.6ms</span>
+</div>
+</div>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between">
+<span>PatchCore Anomaly Heatmap</span>
+<span class="text-primary font-telemetry-sm">Score: 0.984</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (col-5): PRD KPI Verification & Edge Deployment Center -->
+<div class="xl:col-span-5 flex flex-col gap-space-lg">
+<!-- PRD KPI Compliance Checklist -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">fact_check</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">PRD 성공 지표(KPI) 규격 검증</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-label-caps text-label-caps uppercase">ALL PASSED</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Metric 1: FNR -->
+<div class="bg-surface-container p-space-md rounded-lg flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface">불량 유출률 (FNR)</span>
+<span class="font-label-caps text-label-caps text-outline">미검률</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">목표치: ≤ 0.01% (부품 1만개당 1개)</span>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1">
+<span class="font-telemetry-lg text-telemetry-lg text-tertiary-fixed-dim">0.003%</span>
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">verified</span>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary">정상 통과 (PASSED)</span>
+</div>
+</div>
+<!-- Metric 2: FPR -->
+<div class="bg-surface-container p-space-md rounded-lg flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface">과검률 (FPR)</span>
+<span class="font-label-caps text-label-caps text-outline">오검률</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">목표치: ≤ 0.5% (라인 정지 최소화)</span>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1">
+<span class="font-telemetry-lg text-telemetry-lg text-tertiary-fixed-dim">0.18%</span>
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">verified</span>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary">정상 통과 (PASSED)</span>
+</div>
+</div>
+<!-- Metric 3: Latency -->
+<div class="bg-surface-container p-space-md rounded-lg flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface">추론 지연시간 (Latency)</span>
+<span class="font-label-caps text-label-caps text-outline">E2E 판정</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">목표치: ≤ 50.0ms (기준치 초과 달성)</span>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1">
+<span class="font-telemetry-lg text-telemetry-lg text-primary">27.6ms</span>
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">verified</span>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary">정상 통과 (PASSED)</span>
+</div>
+</div>
+<!-- Metric 4: Size & FPS -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col">
+<span class="font-label-caps text-label-caps text-outline">바이너리 용량</span>
+<span class="font-telemetry-md text-telemetry-md text-secondary-fixed-dim mt-0.5">68.4 MB</span>
+<span class="font-telemetry-sm text-telemetry-sm text-tertiary">목표 ≤ 100MB</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col">
+<span class="font-label-caps text-label-caps text-outline">카메라당 Throughput</span>
+<span class="font-telemetry-md text-telemetry-md text-tertiary-container mt-0.5">12.4 FPS</span>
+<span class="font-telemetry-sm text-telemetry-sm text-tertiary">목표 ≥ 10 FPS</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Deployment Control Center Card -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[20px]">rocket_launch</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">현장 엣지 배포 제어소</h3>
+</div>
+<span class="flex items-center gap-1 text-tertiary-fixed-dim font-telemetry-sm text-telemetry-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+              CLUSTER READY
+            </span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Deployment Target Selector -->
+<div class="flex flex-col gap-1">
+<label class="font-title-sm text-title-sm text-on-surface">배포 대상 범위 지정</label>
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="scope-btn px-space-md py-space-sm rounded-lg bg-surface-container-high text-primary font-title-sm text-title-sm flex items-center justify-center gap-1.5 shadow-sm active-target" type="button">
+<span class="material-symbols-outlined text-[16px]">devices</span>
+                  전체 엣지 PC (10대)
+                </button>
+<button class="scope-btn px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+                  1라인 카나리 (PC-01,02)
+                </button>
+</div>
+</div>
+<!-- Distribution Protocol Selection -->
+<div class="flex flex-col gap-1 mt-1">
+<label class="font-title-sm text-title-sm text-on-surface">배포 전송 프로토콜 (폐쇄망 전용)</label>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container p-space-sm rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">사내 레지스트리</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">Local Docker Push</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">usb</span>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">보안 USB 패키징</span>
+<span class="font-telemetry-sm text-telemetry-sm text-outline">에어갭 물리 반출</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Prominent Action Button -->
+<div class="flex flex-col gap-space-xs mt-space-sm">
+<button class="w-full py-3.5 px-space-lg rounded bg-primary-container hover:bg-secondary text-on-primary-container font-title-sm text-title-sm tracking-wide shadow-[0_0_16px_rgba(0,242,254,0.35)] flex items-center justify-center gap-space-sm transition-all duration-200" id="deploy-master-btn">
+<span class="material-symbols-outlined text-[20px]">security_update_good</span>
+<span>최종 현장 배포 승인 (Deploy to 10 Edge PCs)</span>
+</button>
+<div class="flex items-center justify-between text-outline font-telemetry-sm text-telemetry-sm px-1">
+<span>서명: OPERATOR-HASH #8F9A4D</span>
+<span>무중단 롤아웃 (Zero-downtime)</span>
+</div>
+</div>
+<!-- Toast / Feedback alert hidden by default -->
+<div class="hidden bg-tertiary-container/15 text-tertiary-fixed-dim p-space-md rounded-lg flex items-center gap-space-sm animate-fadeIn" id="deploy-alert">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+<span class="font-body-sm text-body-sm">
+                배포 작업이 생성되었습니다: 10대 산업용 GPU PC로 바이너리 동기화가 시작됩니다.
+              </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Multi-Model Architecture Benchmark Comparison Table -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">compare</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">후보 모델 변형체(Variants) 벤치마킹 비교표</h3>
+</div>
+<div class="flex items-center gap-space-md font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+<span>평가 데이터셋: Test Split 1,280장</span>
+<span class="text-outline">|</span>
+<span>GPU: RTX-4000 SFF Ada (20W)</span>
+</div>
+</div>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest text-outline font-label-caps text-label-caps uppercase">
+<th class="py-space-md px-space-md">모델 식별자</th>
+<th class="py-space-md px-space-md">백본 아키텍처</th>
+<th class="py-space-md px-space-md">양자화 규격</th>
+<th class="py-space-md px-space-md">추론 지연시간</th>
+<th class="py-space-md px-space-md">미검률 (FNR)</th>
+<th class="py-space-md px-space-md">과검률 (FPR)</th>
+<th class="py-space-md px-space-md">패키지 용량</th>
+<th class="py-space-md px-space-md">상태 및 판정</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 font-body-sm text-body-sm">
+<!-- Row 1: Active Candidate -->
+<tr class="bg-surface-container-high/60 hover:bg-surface-container-high transition-colors">
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-primary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                v2.4-PatchCore-TRT
+              </td>
+<td class="py-space-md px-space-md text-on-surface">MobileNetV4-Hybrid</td>
+<td class="py-space-md px-space-md font-telemetry-sm text-telemetry-sm text-secondary-fixed-dim">TensorRT INT8</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-tertiary-container font-semibold">27.6 ms</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-tertiary-fixed-dim">0.003%</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-on-surface">0.18%</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-on-surface">68.4 MB</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase font-bold">
+                  ACTIVE CANDIDATE
+                </span>
+</td>
+</tr>
+<!-- Row 2: YOLOv8s Alternative -->
+<tr class="bg-surface-container/40 hover:bg-surface-container transition-colors">
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-on-surface flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                v2.3-YOLOv8s-FP16
+              </td>
+<td class="py-space-md px-space-md text-on-surface">YOLOv8-Small Custom</td>
+<td class="py-space-md px-space-md font-telemetry-sm text-telemetry-sm text-outline">ONNX FP16</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-on-surface">34.2 ms</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-on-surface">0.008%</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-on-surface">0.34%</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-on-surface">82.1 MB</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps">
+                  BACKUP READY
+                </span>
+</td>
+</tr>
+<!-- Row 3: Deprecated Baseline -->
+<tr class="bg-surface-container/20 hover:bg-surface-container transition-colors text-outline">
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-outline flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                v2.1-Legacy-ResNet
+              </td>
+<td class="py-space-md px-space-md text-outline">ResNet-50 Standard</td>
+<td class="py-space-md px-space-md font-telemetry-sm text-telemetry-sm text-outline">PyTorch FP32</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-error">48.1 ms</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-error">0.021%</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-outline">0.62%</td>
+<td class="py-space-md px-space-md font-telemetry-md text-telemetry-md text-error">145.2 MB</td>
+<td class="py-space-md px-space-md">
+<span class="px-2 py-0.5 rounded bg-error-container/40 text-error font-label-caps text-label-caps">
+                  DEPRECATED (EXCEEDS SLA)
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script>
+    (function initPipelineControls() {
+      // Toggle Deployment Scope buttons
+      const scopeButtons = document.querySelectorAll('.scope-btn');
+      scopeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          scopeButtons.forEach(b => {
+            b.classList.remove('bg-surface-container-high', 'text-primary');
+            b.classList.add('bg-surface-container', 'text-on-surface-variant');
+          });
+          btn.classList.add('bg-surface-container-high', 'text-primary');
+          btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        });
+      });
+
+      // Master Deploy Trigger
+      const deployBtn = document.getElementById('deploy-master-btn');
+      const deployAlert = document.getElementById('deploy-alert');
+      if (deployBtn && deployAlert) {
+        deployBtn.addEventListener('click', () => {
+          deployBtn.disabled = true;
+          deployBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">sync</span><span>배포 신호 송출 중 (Syncing)...</span>';
+          deployBtn.classList.replace('bg-primary-container', 'bg-surface-container-high');
+          deployBtn.classList.replace('text-on-primary-container', 'text-primary');
+          
+          setTimeout(() => {
+            deployAlert.classList.remove('hidden');
+            deployBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span><span>10대 엣지 PC 배포 승인 완료됨</span>';
+            deployBtn.classList.replace('bg-surface-container-high', 'bg-tertiary-container');
+            deployBtn.classList.replace('text-primary', 'text-on-tertiary-container');
+          }, 1200);
+        });
+      }
+
+      // Refresh Simulation
+      const refreshBtn = document.getElementById('refresh-state-btn');
+      if (refreshBtn) {
+        refreshBtn.addEventListener('click', () => {
+          refreshBtn.classList.add('rotate-180', 'transition-transform');
+          setTimeout(() => {
+            refreshBtn.classList.remove('rotate-180', 'transition-transform');
+          }, 400);
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-xl"><div class="w-full px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-md"><span class="font-title-sm text-title-sm text-primary">SynapseQC Physical AI</span><span class="font-telemetry-sm text-telemetry-sm text-outline">Firmware v4.8.2-edge</span></div><div class="font-label-caps text-label-caps text-outline tracking-wider">© 2025 SYNAPSEQC CORP. INDUSTRIAL AIR-GAPPED VISION SYSTEM. ALL RIGHTS RESERVED.</div><div class="flex items-center gap-space-lg"><span class="flex items-center gap-1 text-tertiary font-telemetry-sm text-telemetry-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>NODE CLUSTER SECURE</span></div></div></footer></body></html>
