@@ -1,478 +1,578 @@
-<!DOCTYPE html>
-
-<html class="dark" lang="ko"><head><meta charset="utf-8"/><title>솔루션 소개 및 ROI 분석 | SynapseQC</title><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary-container":"#67f4b7","outline-variant":"#3a494b","secondary-fixed-dim":"#89ceff","primary":"#e0fdff","outline":"#849495","on-surface":"#dfe2ee","on-background":"#dfe2ee","surface-container-low":"#181c24","on-error-container":"#ffdad6","on-primary-container":"#006a70","on-secondary-fixed-variant":"#004c6e","inverse-on-surface":"#2c3039","background":"#0f131c","surface-bright":"#353942","on-error":"#690005","on-tertiary-fixed":"#002113","surface-variant":"#31353e","primary-fixed":"#6ff6ff","secondary-fixed":"#c9e6ff","primary-container":"#00f2fe","surface-tint":"#00dce6","on-secondary-fixed":"#001e2f","error-container":"#93000a","surface":"#0f131c","inverse-primary":"#00696f","on-tertiary-container":"#006e4b","surface-container-highest":"#31353e","secondary-container":"#00a2e6","on-tertiary":"#003824","inverse-surface":"#dfe2ee","surface-container":"#1c2028","on-secondary-container":"#00344e","on-tertiary-fixed-variant":"#005236","surface-dim":"#0f131c","error":"#ffb4ab","secondary":"#89ceff","tertiary-fixed":"#6ffbbe","on-primary-fixed-variant":"#004f53","surface-container-high":"#262a33","on-surface-variant":"#b9cacb","on-primary-fixed":"#002022","primary-fixed-dim":"#00dce6","on-secondary":"#00344d","on-primary":"#00373a","surface-container-lowest":"#0a0e16","tertiary":"#e1ffec","tertiary-fixed-dim":"#4edea3"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1rem","space-xl":"1.5rem","space-xs":"0.25rem","space-lg":"1rem","space-md":"0.75rem","space-sm":"0.5rem","gutter":"0.75rem"},"fontFamily":{"headline-md":["Inter"],"telemetry-lg":["JetBrains Mono"],"telemetry-md":["JetBrains Mono"],"title-sm":["Inter"],"body-md":["Inter"],"label-caps":["JetBrains Mono"],"headline-lg":["Inter"],"headline-lg-mobile":["Inter"],"body-sm":["Inter"],"telemetry-sm":["JetBrains Mono"],"display-lg":["Inter"]},"fontSize":{"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}],"telemetry-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.03em","fontWeight":"700"}],"telemetry-md":["14px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"title-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-caps":["10px",{"lineHeight":"12px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"telemetry-sm":["11px",{"lineHeight":"14px","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><div class="flex items-center gap-space-sm"><img alt="SynapseQC Logo" class="h-8 w-auto object-contain" src="images/img-ee768685d3.jpg"/><span class="font-title-sm text-title-sm tracking-tight text-primary uppercase">SynapseQC</span><span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps">PHYSICAL AI</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(0,242,254,0.25)]"><a aria-current="page" class="px-space-md py-1.5 transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-[0_0_12px_rgba(0,242,254,0.25)]" data-path="overview" href="index.html">솔루션 소개</a><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="dataset-studio" href="dataset-studio.html">데이터셋 스튜디오</a><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="automl-pipeline" href="automl-pipeline.html">AutoML 파이프라인</a><a class="px-space-md py-1.5 rounded-lg font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="edge-monitor" href="edge-monitor.html">실시간 엣지 모니터링</a></nav></div><div class="hidden lg:flex items-center gap-space-sm shrink-0"><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-tertiary font-telemetry-sm text-telemetry-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span><span>공장 폐쇄망 가동 중</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-primary font-medium">GPU PC:</span><span class="text-on-surface">10/10 정상</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-primary font-medium">CAM:</span><span class="text-on-surface">40/40 Online (10 FPS)</span></div><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant font-telemetry-sm text-telemetry-sm"><span class="text-secondary-fixed-dim font-medium">지연:</span><span class="text-tertiary-fixed-dim font-semibold">28.4ms</span><span class="text-outline text-[10px]">(≤50ms)</span></div></div><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-sm pl-space-sm"><div class="hidden md:flex flex-col text-right"><span class="font-title-sm text-title-sm text-on-surface leading-none">제1공장 엔지니어링팀</span><span class="font-label-caps text-label-caps text-tertiary-fixed-dim mt-0.5">MASTER OPERATOR</span></div><div class="relative"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-tertiary-container ring-2 ring-surface-container-lowest"></span></div></div></div></div></header><main class="w-full pt-16 bg-surface flex-1"><div class="flex flex-col w-full">
-<!-- HERO SECTION -->
-<section class="relative w-full overflow-hidden bg-surface-container-lowest px-gutter py-space-xl">
-<div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,242,254,0.12),transparent_70%)] pointer-events-none"></div>
-<div class="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-space-lg">
-<!-- Top Cyber Tag -->
-<div class="flex flex-wrap items-center gap-space-sm">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high text-primary-fixed font-label-caps text-label-caps tracking-wider shadow-[0_0_12px_rgba(0,242,254,0.15)]">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
-          온프레미스 엣지 폐쇄망 기반 피지컬 AI 비전 솔루션
-        </span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-telemetry-sm text-telemetry-sm">
-          AIR-GAPPED COMPLIANT
-        </span>
+<!DOCTYPE html><html class="dark" lang="ko" style=""><head><meta charset="utf-8"><title>SynapseQC Physical AI | 초경량 피지컬 비전 AI</title><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>html{scroll-behavior:smooth;}@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary":"#00373a","on-tertiary-fixed":"#002113","outline-variant":"#3a494b","tertiary-container":"#67f4b7","surface":"#0f131c","on-tertiary-fixed-variant":"#005236","tertiary-fixed":"#6ffbbe","on-secondary":"#00344d","background":"#0f131c","surface-container":"#1c2028","on-background":"#dfe2ee","error":"#ffb4ab","surface-variant":"#31353e","primary-fixed":"#6ff6ff","inverse-primary":"#00696f","tertiary":"#e1ffec","surface-container-highest":"#31353e","on-primary-fixed-variant":"#004f53","outline":"#849495","surface-tint":"#00dce6","secondary-fixed":"#c9e6ff","tertiary-fixed-dim":"#4edea3","surface-container-low":"#181c24","on-secondary-fixed-variant":"#004c6e","on-primary-fixed":"#002022","surface-container-lowest":"#0a0e16","secondary-container":"#00a2e6","inverse-on-surface":"#2c3039","on-tertiary":"#003824","on-secondary-fixed":"#001e2f","inverse-surface":"#dfe2ee","primary-fixed-dim":"#00dce6","on-primary-container":"#006a70","primary-container":"#00f2fe","surface-bright":"#353942","secondary-fixed-dim":"#89ceff","on-error":"#690005","secondary":"#89ceff","surface-container-high":"#262a33","primary":"#e0fdff","on-surface-variant":"#b9cacb","error-container":"#93000a","on-error-container":"#ffdad6","on-surface":"#dfe2ee","surface-dim":"#0f131c","on-tertiary-container":"#006e4b","on-secondary-container":"#00344e"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{margin:"1rem",gutter:"0.75rem","space-md":"0.75rem","space-xs":"0.25rem","space-sm":"0.5rem","space-xl":"1.5rem","space-lg":"1rem"},fontFamily:{"telemetry-lg":["JetBrains Mono"],"telemetry-sm":["JetBrains Mono"],"label-caps":["JetBrains Mono"],"display-lg":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"title-sm":["Inter"],"headline-lg-mobile":["Inter"],"telemetry-md":["JetBrains Mono"],"body-sm":["Inter"],"headline-lg":["Inter"]},fontSize:{"telemetry-lg":["22px",{lineHeight:"28px",letterSpacing:"-0.03em",fontWeight:"700"}],"telemetry-sm":["11px",{lineHeight:"14px",fontWeight:"400"}],"label-caps":["10px",{lineHeight:"12px",letterSpacing:"0.08em",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"title-sm":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-lg-mobile":["22px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"telemetry-md":["14px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.45)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><div class="w-7 h-7 bg-primary-container rounded flex items-center justify-center shadow-[0_0_12px_rgba(0,242,254,0.35)]"><span class="material-symbols-outlined text-on-primary-container text-[18px]">biotech</span></div><div class="flex flex-col"><span class="font-label-caps text-label-caps text-primary-fixed-dim uppercase tracking-widest">Industrial Vision Edge</span><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold leading-none">SYNAPSE<span class="text-primary-container">QC</span> <span class="font-title-sm text-title-sm text-on-surface-variant font-normal">Physical AI</span></span></div></div><nav class="hidden xl:flex items-center gap-space-md" data-active-classes="bg-surface-container-high text-on-surface font-title-sm rounded"><a aria-current="page" class="px-space-md py-space-xs transition-all bg-surface-container-high text-on-surface font-title-sm rounded" data-path="solutions" href="#solutions">솔루션 소개</a><a class="px-space-md py-space-xs font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="use-cases" href="#use-cases">적용 사례</a><a class="px-space-md py-space-xs font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="core-tech" href="#core-tech">기술 특장점</a><a class="px-space-md py-space-xs font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="roi-impact" href="#roi-section">도입 효과/ROI</a><a class="px-space-md py-space-xs font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="poc-inquiry" href="#poc-form">PoC 신청</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-1.5 bg-surface-container-high text-primary px-3.5 py-space-xs rounded font-title-sm text-title-sm font-semibold hover:bg-surface-variant hover:text-primary-fixed transition-all shadow-sm group" data-path="dashboard" href="dashboard/overview.html"><span class="material-symbols-outlined text-primary-container text-[18px]">space_dashboard</span><span class="">대시보드</span><span class="px-1.5 py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-caps text-label-caps">LIVE</span></a><a class="inline-flex items-center gap-space-xs bg-primary-container text-on-primary-container px-space-lg py-space-xs rounded font-title-sm text-title-sm font-semibold shadow-[0_0_12px_rgba(0,242,254,0.35)] hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-all" data-path="poc-inquiry" href="#poc-form"><span class="">24시간 무상 PoC 신청</span><span class="material-symbols-outlined text-[16px]">bolt</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-64px)]"><div class="flex flex-col w-full">
+<!-- Top Ambient Glow Field -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[380px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="absolute top-48 right-10 w-[360px] h-[240px] bg-secondary-container/10 rounded-full blur-[110px] pointer-events-none"></div>
+<!-- 1. HERO SECTION -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 pt-12 pb-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Hero Copy -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full bg-surface-container-high shadow-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-ping"></span>
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">공장 폐쇄망 100% 보장 · On-Premise Physical AI</span>
 </div>
-<!-- Main Headline Grid -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-end">
-<div class="lg:col-span-8 flex flex-col gap-space-md">
 <h1 class="font-display-lg text-display-lg text-primary tracking-tight font-bold">
-            어떤 제조 부품이든 <span class="text-primary-container drop-shadow-[0_0_18px_rgba(0,242,254,0.4)]">24시간 내</span> 초경량 비전 AI 모델로 맞춤 최적화
+            어떤 제조 라인이든 <br class="hidden sm:inline">
+<span class="text-primary-container drop-shadow-[0_0_18px_rgba(0,242,254,0.45)]">24시간 내 맞춤 구축</span>되는 <br>
+            초경량 피지컬 비전 AI
           </h1>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl leading-relaxed">
-            산업용 카메라 40대, 초당 10개 부품 초고속 인라인 전수 검사. 35ms 초저지연 판정부터 PLC 배출기 즉각 제어까지 완벽 구현.
-            설계 도면과 불량 로그는 사내 폐쇄망에 100% 영구 격리됩니다.
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl leading-relaxed">
+            소량의 정상품·불량품 데이터셋만으로 공장 맞춤형 경량 모델 자동 생성. 카메라 40대 전수 검사, 35ms 초저지연 판정으로 불량 유출 제로(0.01% 이하)를 달성합니다.
           </p>
-<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
-<a class="px-space-lg py-3 rounded bg-primary-container text-surface-container-lowest font-title-sm text-title-sm font-bold flex items-center gap-2 hover:bg-secondary-fixed shadow-[0_0_16px_rgba(0,242,254,0.35)] transition-all" href="dataset-studio.html">
-<span class="material-symbols-outlined text-[18px]">model_training</span>
-              맞춤형 데이터셋 등록하기
-            </a>
-<a class="px-space-lg py-3 rounded bg-surface-container-high text-on-surface font-title-sm text-title-sm flex items-center gap-2 hover:bg-surface-variant transition-all" href="edge-monitor.html">
-<span class="material-symbols-outlined text-[18px]">sensors</span>
-              현장 실시간 모니터링 데모 보기
-            </a>
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<a class="inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3.5 rounded font-title-sm text-title-sm font-semibold shadow-[0_0_24px_rgba(0,242,254,0.4)] hover:bg-primary-fixed hover:text-on-primary-fixed transition-all group" href="#poc-form">
+<span class="">24시간 무상 PoC 신청하기</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 bg-surface-container-high text-primary px-5 py-3.5 rounded font-title-sm text-title-sm font-semibold hover:bg-surface-variant transition-colors" href="#roi-section">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed-dim">download</span>
+<span class="">ROI 산출 리포트 다운로드</span>
+</a>
 </div>
+<!-- Trust Badges Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6">
+<div class="p-3 bg-surface-container-low rounded flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">INSPECTION SPEED</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-bold">35ms 초저지연</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">초당 10개 인라인 전수</span>
 </div>
-<!-- Hero Sub-Card: Real-time Camera Feed Telemetry Mock -->
-<div class="lg:col-span-4 bg-surface-container p-space-md rounded-xl shadow-xl flex flex-col gap-space-sm relative overflow-hidden">
-<div class="flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps">
-<span class="flex items-center gap-1.5 text-tertiary-fixed-dim">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span>
-              NODE-04 / CAM-016 LIVE
-            </span>
-<span class="text-primary font-telemetry-sm text-telemetry-sm">INSPECTION ENGINE</span>
+<div class="p-3 bg-surface-container-low rounded flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-tertiary-container">DEFECT LEAKAGE</span>
+<span class="font-telemetry-md text-telemetry-md text-tertiary-fixed font-bold">미검률 ≤0.01%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">오검률 0.1% 이하</span>
 </div>
-<div class="relative w-full h-44 rounded-lg bg-surface-container-lowest overflow-hidden">
-<img class="w-full h-full object-cover opacity-80" data-alt="High speed industrial conveyor optical inspection view with illuminated metallic precision automotive parts moving under industrial camera flash with digital HUD cyber overlay" src="images/img-e9de1eb2e5.jpg"/>
-<!-- HUD Overlays -->
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
-<!-- Bounding Box Reticle Target (Cyan Pass) -->
-<div class="absolute top-4 left-6 w-24 h-24 rounded bg-primary-container/10 p-1 flex flex-col justify-between">
-<div class="flex items-center justify-between">
-<span class="bg-primary-container text-surface-container-lowest font-label-caps text-[9px] px-1 py-0.5 rounded font-bold">PASS 99.8%</span>
-<span class="font-telemetry-sm text-[9px] text-primary">#P-0931</span>
+<div class="p-3 bg-surface-container-low rounded flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-secondary">ANNUAL SAVINGS</span>
+<span class="font-telemetry-md text-telemetry-md text-secondary-fixed font-bold">연 3.2억원</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">인건비·리콜 순절감</span>
 </div>
-<span class="font-telemetry-sm text-[8px] text-primary self-end">Δ 0.01mm</span>
-</div>
-<!-- Bounding Box Reticle Target (Red Crack Defect) -->
-<div class="absolute top-12 right-6 w-20 h-20 rounded bg-error-container/20 p-1 flex flex-col justify-between shadow-[0_0_12px_rgba(239,68,68,0.4)]">
-<div class="flex items-center justify-between">
-<span class="bg-error text-surface-container-lowest font-label-caps text-[9px] px-1 py-0.5 rounded font-bold">DEFECT CRACK</span>
-<span class="font-telemetry-sm text-[9px] text-error">99.4%</span>
-</div>
-<span class="font-telemetry-sm text-[8px] text-error self-end animate-pulse">PLC EJECT TRIG</span>
-</div>
-<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between font-telemetry-sm text-telemetry-sm text-on-surface-variant bg-surface-container-lowest/80 backdrop-blur-md px-2 py-1 rounded">
-<span>FPS: <strong class="text-primary">10.2</strong></span>
-<span>L: <strong class="text-tertiary-fixed-dim">28.4ms</strong></span>
-<span>INLINE SYNC</span>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-space-xs text-center font-telemetry-sm text-telemetry-sm">
-<div class="bg-surface-container-low p-2 rounded">
-<span class="text-outline block text-[10px]">CURRENT CYCLE</span>
-<span class="text-on-surface font-bold">3,640 pcs/hr</span>
-</div>
-<div class="bg-surface-container-low p-2 rounded">
-<span class="text-outline block text-[10px]">DEFECT COUNT</span>
-<span class="text-error font-bold">14 pcs (0.38%)</span>
+<div class="p-3 bg-surface-container-low rounded flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-primary-fixed-dim">SECURITY</span>
+<span class="font-telemetry-md text-telemetry-md text-primary-fixed font-bold">100% 에어갭</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">완전 폐쇄망 온프레미스</span>
 </div>
 </div>
 </div>
+<!-- Right Interactive Preview Instrument Card -->
+<div class="lg:col-span-5 relative">
+<div class="bg-surface-container-low rounded-xl shadow-2xl p-4 flex flex-col gap-3 relative overflow-hidden">
+<!-- HUD Card Header -->
+<div class="flex items-center justify-between bg-surface-container px-3 py-2 rounded">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-wider">CAM-04 · INLINE CH-A2</span>
 </div>
-<!-- KEY TELEMETRY METRIC STRIP -->
-<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md pt-space-md">
-<!-- Metric 1 -->
-<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-1 shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-label-caps text-label-caps text-outline tracking-wider">LATENCY (BUDGET 50MS)</span>
-<span class="material-symbols-outlined text-primary text-[18px]">speed</span>
-</div>
-<div class="flex items-baseline gap-1">
-<span class="font-telemetry-lg text-telemetry-lg text-primary font-bold">28.4</span>
-<span class="font-telemetry-md text-telemetry-md text-outline">ms</span>
-</div>
-<span class="font-telemetry-sm text-telemetry-sm text-tertiary-fixed-dim">▲ 기준 50ms 대비 43% 고속 판정</span>
-</div>
-<!-- Metric 2 -->
-<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-1 shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-label-caps text-label-caps text-outline tracking-wider">불량 유출률 (FNR)</span>
-<span class="material-symbols-outlined text-tertiary-container text-[18px]">verified</span>
-</div>
-<div class="flex items-baseline gap-1">
-<span class="font-telemetry-lg text-telemetry-lg text-tertiary font-bold">≤ 0.004</span>
-<span class="font-telemetry-md text-telemetry-md text-outline">%</span>
-</div>
-<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">목표 0.01% 완벽 충족 (0-Escape)</span>
-</div>
-<!-- Metric 3 -->
-<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-1 shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-label-caps text-label-caps text-outline tracking-wider">초당 처리량 (THROUGHPUT)</span>
-<span class="material-symbols-outlined text-secondary text-[18px]">videocam</span>
-</div>
-<div class="flex items-baseline gap-1">
-<span class="font-telemetry-lg text-telemetry-lg text-secondary-fixed font-bold">400</span>
-<span class="font-telemetry-md text-telemetry-md text-outline">FPS</span>
-</div>
-<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">카메라 40대 전수 무손실 검사</span>
-</div>
-<!-- Metric 4 -->
-<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-1 shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-label-caps text-label-caps text-outline tracking-wider">보안 네트워크</span>
-<span class="material-symbols-outlined text-primary-fixed-dim text-[18px]">lock</span>
-</div>
-<div class="flex items-baseline gap-1">
-<span class="font-telemetry-lg text-telemetry-lg text-primary font-bold">100%</span>
-<span class="font-telemetry-md text-telemetry-md text-outline">Air-Gapped</span>
-</div>
-<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">신제품 CAD 및 도면 유출 원천 차단</span>
+<div class="flex items-center gap-2">
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">EDGE TEE</span>
+<span class="px-1.5 py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-caps text-label-caps">PLC SYNC</span>
 </div>
 </div>
+<!-- Visualizer Display Area -->
+<div class="relative w-full h-72 rounded-lg bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-80" data-alt="Close-up macro industrial photograph of a metallic precision spur gear passing along a high-speed factory conveyor belt under blue laser inspection illumination. High-contrast specular reflections on polished metal teeth with dark obsidian industrial machine backgrounds." src="images/img-97deb9ddc7.jpg">
+<!-- Laser Scan Line FX -->
+<div class="absolute inset-x-0 top-1/2 h-0.5 bg-gradient-to-r from-transparent via-primary-container to-transparent shadow-[0_0_12px_rgba(0,242,254,0.8)]"></div>
+<!-- Reticle & Bounding Box Overlay -->
+<div class="absolute top-14 left-1/3 w-36 h-28 bg-error/10 rounded flex flex-col justify-between p-1.5 pointer-events-none shadow-[0_0_16px_rgba(239,68,68,0.4)]">
+<div class="flex items-center justify-between bg-error-container/90 px-1.5 py-0.5 rounded self-start">
+<span class="font-label-caps text-label-caps text-on-error-container font-bold">DEFECT_CRACK #402</span>
 </div>
-</section>
-<!-- CORE VALUE: PHYSICAL AI & 24H CUSTOM PIPELINE -->
-<section class="w-full px-gutter py-space-xl bg-surface">
-<div class="max-w-7xl mx-auto w-full flex flex-col gap-space-lg">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-<div>
-<span class="font-label-caps text-label-caps text-primary-container tracking-widest uppercase">PHYSICAL AI WORKFLOW</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">부품 변경부터 현장 엣지 이식까지 단 24시간 파이프라인</h2>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
-          외부 개발사에 의존하지 않고 사내 공장 품질팀이 자체 데이터셋 등록, 자동 경량화, PLC 신호 연동을 원스톱으로 마칩니다.
-        </p>
-</div>
-<!-- 3-Step Interactive Architecture Cards -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
-<!-- Step 1 -->
-<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between relative group hover:bg-surface-container transition-all">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-center justify-between">
-<span class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center font-telemetry-md text-telemetry-md text-primary font-bold">01</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-[11px] font-label-caps text-secondary-fixed">ONE-SHOT &amp; SYNTHESIS</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface mt-2">소량 데이터 등록 &amp; 합성 증강</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-              부품 생산 라인이 변경되어도 정상품 샘플 20~50장만으로 패치 기반 비지도 이상치 탐지(PatchCore)를 즉시 초기화합니다.
-            </p>
-<div class="mt-4 p-space-sm rounded bg-surface-container-lowest font-telemetry-sm text-telemetry-sm text-outline flex flex-col gap-1">
-<div class="flex justify-between">
-<span>데이터 수집 규격</span>
-<span class="text-on-surface">GigE 4K / RGB / Mono</span>
-</div>
-<div class="flex justify-between">
-<span>기하학적 증강</span>
-<span class="text-tertiary-fixed-dim">회전, 조도 가변, 엣지 노이즈</span>
+<div class="flex items-center justify-between text-error font-telemetry-sm text-telemetry-sm font-bold bg-surface-container-lowest/80 px-1 rounded">
+<span class="">Δ 0.04mm</span>
+<span class="">CONF: 99.4%</span>
 </div>
 </div>
+<!-- Nominal Reticle Overlay -->
+<div class="absolute bottom-6 right-8 w-24 h-16 bg-primary-container/10 rounded p-1 flex flex-col justify-between pointer-events-none">
+<span class="font-label-caps text-label-caps text-primary-container bg-surface-container-lowest/70 px-1 rounded self-start">PIN #01 PASS</span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary-fixed-dim">OK (0.01mm)</span>
 </div>
-<div class="mt-space-md pt-space-sm border-t border-surface-container-highest/20 flex items-center justify-between text-on-surface-variant font-telemetry-sm">
-<span>소요 시간: <strong>1.5 Hours</strong></span>
-<span class="text-primary font-medium">자동 전처리</span>
+<!-- Live Telemetry Pill -->
+<div class="absolute top-3 left-3 bg-surface-container-lowest/90 px-2 py-1 rounded flex items-center gap-2">
+<span class="font-telemetry-sm text-telemetry-sm text-primary-fixed-dim">LATENCY</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-bold">28.4 ms</span>
 </div>
-</div>
-<!-- Step 2 -->
-<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between relative group hover:bg-surface-container transition-all shadow-[0_0_20px_rgba(0,242,254,0.05)]">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-center justify-between">
-<span class="w-8 h-8 rounded bg-primary-container text-surface-container-lowest flex items-center justify-center font-telemetry-md text-telemetry-md font-bold">02</span>
-<span class="px-2 py-0.5 rounded bg-primary-container/20 text-[11px] font-label-caps text-primary-fixed">TENSORRT COMPILE</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface mt-2">AutoML 경량화 &amp; INT8 양자화</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-              YOLOv8-nano 및 PatchCore 알고리즘을 하이브리드 조합. 100MB 미만의 초경량 런타임 엔진으로 10대 동시 자동 컴파일.
-            </p>
-<div class="mt-4 p-space-sm rounded bg-surface-container-lowest font-telemetry-sm text-telemetry-sm text-outline flex flex-col gap-1">
-<div class="flex justify-between">
-<span>타깃 모델 크기</span>
-<span class="text-primary font-bold">≤ 84.2 MB</span>
-</div>
-<div class="flex justify-between">
-<span>FP16 / INT8 가속</span>
-<span class="text-primary">NVIDIA TensorRT 10.x</span>
+<!-- Pneumatic Ejector Badge -->
+<div class="absolute bottom-3 left-3 bg-surface-container-lowest/95 px-2.5 py-1 rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-error">electric_bolt</span>
+<span class="font-label-caps text-label-caps text-on-error-container">PNEUMATIC EJECT TRIGGERED</span>
 </div>
 </div>
+<!-- Sub Telemetry Dock -->
+<div class="grid grid-cols-3 gap-2 text-center">
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">BATCH COUNT</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-bold">14,820 pcs</span>
 </div>
-<div class="mt-space-md pt-space-sm border-t border-surface-container-highest/20 flex items-center justify-between text-on-surface-variant font-telemetry-sm">
-<span>소요 시간: <strong>18 Hours</strong></span>
-<span class="text-primary-container font-medium">검증 지표 자동 산출</span>
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">DEFECT DETECTED</span>
+<span class="font-telemetry-md text-telemetry-md text-error font-bold">14 pcs (0.09%)</span>
 </div>
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">LINE CONVEYOR</span>
+<span class="font-telemetry-md text-telemetry-md text-tertiary-fixed font-bold">48 m/min</span>
 </div>
-<!-- Step 3 -->
-<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between relative group hover:bg-surface-container transition-all">
-<div class="flex flex-col gap-space-sm">
-<div class="flex items-center justify-between">
-<span class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center font-telemetry-md text-telemetry-md text-primary font-bold">03</span>
-<span class="px-2 py-0.5 rounded bg-surface-container text-[11px] font-label-caps text-tertiary-fixed-dim">PLC EJECT TRIGGER</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface mt-2">엣지 PC 10대 배포 &amp; 즉각 제어</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-              Docker 컨테이너를 통해 내부망 즉시 이식. 50ms 이내 실린더 Ejector를 타격하여 불량품을 컨베이어 밖으로 고속 분리.
-            </p>
-<div class="mt-4 p-space-sm rounded bg-surface-container-lowest font-telemetry-sm text-telemetry-sm text-outline flex flex-col gap-1">
-<div class="flex justify-between">
-<span>PLC 프로토콜</span>
-<span class="text-on-surface">Modbus TCP, OPC UA, DI/O</span>
-</div>
-<div class="flex justify-between">
-<span>판정 지연 (평균)</span>
-<span class="text-tertiary-fixed-dim font-bold">28.4ms (Max 35ms)</span>
-</div>
-</div>
-</div>
-<div class="mt-space-md pt-space-sm border-t border-surface-container-highest/20 flex items-center justify-between text-on-surface-variant font-telemetry-sm">
-<span>소요 시간: <strong>30 Mins</strong></span>
-<span class="text-tertiary-fixed font-medium">인라인 무중단 전환</span>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- ROI & TCO CALCULATOR MATRIX (BASED ON PRD NUMBERS) -->
-<section class="w-full px-gutter py-space-xl bg-surface-container-lowest">
-<div class="max-w-7xl mx-auto w-full flex flex-col gap-space-lg">
-<div class="flex flex-col gap-1">
-<span class="font-label-caps text-label-caps text-primary-container tracking-widest uppercase">FINANCIAL VALUE &amp; RECOVERY</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">도입 즉시 검증되는 6.8개월 손익분기점(BEP)과 3년 TCO</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-          실제 제조 공장 3교대 육안 검사자 인건비와 클라우드 비용을 엣지 인프라로 대체했을 때의 정량적 회수 모델입니다.
+</div>
+<!-- 2. PROBLEM VS SOLUTION SECTION -->
+<section id="solutions" class="scroll-mt-16 w-full bg-surface-container-lowest py-20">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col gap-12">
+<div class="flex flex-col gap-2 max-w-2xl">
+<div class="inline-flex items-center gap-2">
+<span class="w-1.5 h-4 bg-primary-container rounded-full"></span>
+<span class="font-label-caps text-label-caps text-primary-fixed-dim uppercase tracking-widest">COMPARATIVE ARCHITECTURE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">왜 기존 비전 검사는 공장 혁신에 실패하는가?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          전통 룰베이스 머신비전의 잦은 세팅 변경과 클라우드 비전의 보안·지연 문제를 SynapseQC 엣지 AI가 원천 해결합니다.
         </p>
 </div>
-<!-- ROI Interactive Calculation Board -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
-<!-- Left: Summary Matrix Card -->
-<div class="lg:col-span-7 bg-surface-container p-space-lg rounded-xl flex flex-col gap-space-md shadow-xl">
-<div class="flex items-center justify-between">
-<span class="font-title-sm text-title-sm text-primary flex items-center gap-2">
-<span class="material-symbols-outlined text-[20px]">calculate</span>
-              연간 예상 절감 비용 및 투자 회수 매트릭스
-            </span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary-fixed-dim font-telemetry-sm text-telemetry-sm">기준: 1개 라인 40대 CAM</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Column 1: Model Agility -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between gap-6 shadow-md">
+<div class="flex flex-col gap-4">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">model_training</span>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-<!-- Box 1: Labor Savings -->
-<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
-<span class="font-label-caps text-label-caps text-outline">인건비 절감 (3교대 6명)</span>
-<div class="flex items-baseline gap-1">
-<span class="font-telemetry-lg text-telemetry-lg text-on-surface font-bold">2.4</span>
-<span class="font-body-md text-body-md text-on-surface">억 원 / 년</span>
-</div>
-<span class="text-[11px] text-on-surface-variant font-telemetry-sm">1인 연봉 4,000만 원 × 2인 × 3교대</span>
-</div>
-<!-- Box 2: Defect Loss Avoidance -->
-<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
-<span class="font-label-caps text-label-caps text-outline">불량 유출/클레임 방지 절감</span>
-<div class="flex items-baseline gap-1">
-<span class="font-telemetry-lg text-telemetry-lg text-tertiary-fixed font-bold">0.8 ~ 1.0</span>
-<span class="font-body-md text-body-md text-on-surface">억 원 / 년</span>
-</div>
-<span class="text-[11px] text-on-surface-variant font-telemetry-sm">고객사 리콜, 긴급 재작업 비용 예방</span>
-</div>
-<!-- Box 3: Total Annual Benefit -->
-<div class="bg-surface-container-high p-space-md rounded-lg flex flex-col gap-1">
-<span class="font-label-caps text-label-caps text-primary-container">총 연간 순비용 절감</span>
-<div class="flex items-baseline gap-1">
-<span class="font-telemetry-lg text-telemetry-lg text-primary-container font-bold">약 3.2</span>
-<span class="font-body-md text-body-md text-on-surface font-semibold">억 원 / 년</span>
-</div>
-<span class="text-[11px] text-primary-fixed-dim font-telemetry-sm">초기 구축비 약 1.5억 원 대비 압도적 회수</span>
-</div>
-<!-- Box 4: Payback Duration -->
-<div class="bg-surface-container-high p-space-md rounded-lg flex flex-col gap-1">
-<span class="font-label-caps text-label-caps text-tertiary-container">손익분기점 (BEP) 회수 기간</span>
-<div class="flex items-baseline gap-1">
-<span class="font-telemetry-lg text-telemetry-lg text-tertiary-container font-bold">6.8</span>
-<span class="font-body-md text-body-md text-on-surface font-semibold">개월</span>
-</div>
-<span class="text-[11px] text-tertiary-fixed font-telemetry-sm">도입 후 첫 해 내 투자비 전액 회수</span>
-</div>
-</div>
-<!-- Cumulative Savings Comparison Chart (Inline SVG) -->
-<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-2">
-<div class="flex items-center justify-between text-on-surface-variant font-telemetry-sm text-telemetry-sm">
-<span>3개년 누적 비용 흐름 (기존 체계 vs SynapseQC 엣지)</span>
-<span class="text-tertiary font-bold">순이익 전환점: 7개월 차</span>
-</div>
-<div class="w-full h-28 relative">
-<svg class="w-full h-full overflow-visible" viewbox="0 0 500 120">
-<!-- Grid Lines -->
-<line stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" x1="0" x2="500" y1="20" y2="20"></line>
-<line stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" x1="0" x2="500" y1="60" y2="60"></line>
-<line stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" x1="0" x2="500" y1="100" y2="100"></line>
-<!-- Legacy Cost Curve (Rising fast red line) -->
-<path d="M 10 110 L 150 75 L 300 40 L 480 5" fill="none" stroke="#ef4444" stroke-dasharray="2 2" stroke-width="2"></path>
-<!-- SynapseQC Edge Investment + Flat Operational Curve (Laser Cyan) -->
-<path d="M 10 50 L 120 70 L 250 85 L 380 95 L 480 102" fill="none" stroke="#00f2fe" stroke-width="3"></path>
-<!-- Crossover Point Marker -->
-<circle cx="110" cy="71" fill="#00f2fe" r="5"></circle>
-<text fill="#e0fdff" font-family="JetBrains Mono" font-size="10" x="125" y="65">BEP Crossover (6.8M)</text>
-</svg>
-</div>
-<div class="flex items-center justify-between font-label-caps text-[10px] text-outline">
-<span class="flex items-center gap-1.5"><span class="w-2.5 h-1 bg-error rounded"></span>기존 수동 검사 인건비 &amp; 손실</span>
-<span class="flex items-center gap-1.5"><span class="w-2.5 h-1 bg-primary-container rounded"></span>SynapseQC 엣지 TCO 누적</span>
-</div>
-</div>
-</div>
-<!-- Right: Cloud vs On-Premise Air-gapped Comparison -->
-<div class="lg:col-span-5 bg-surface-container p-space-lg rounded-xl flex flex-col justify-between shadow-xl">
-<div class="flex flex-col gap-space-sm">
-<span class="font-label-caps text-label-caps text-outline tracking-wider">3-YEAR INFRASTRUCTURE TCO</span>
-<h3 class="font-headline-md text-headline-md text-on-surface">클라우드 대비 온프레미스 엣지 3년 TCO 10.5억 원 절감</h3>
+<h3 class="font-headline-md text-headline-md text-primary font-semibold">품목 교체 &amp; 신규 결함 대응</h3>
+<!-- Traditional Failure -->
+<div class="bg-surface-container p-4 rounded flex flex-col gap-1.5">
+<span class="font-label-caps text-label-caps text-error">기존 룰베이스 머신비전</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant">
-              초당 400 FPS의 고용량 비전 스트림을 외부 클라우드로 전송 시 발생하는 비현실적인 전용회선 요금 및 GPU 서버 대여 비용을 완전히 배제합니다.
-            </p>
-<div class="flex flex-col gap-space-xs mt-space-sm">
-<div class="flex items-center justify-between p-space-sm rounded bg-surface-container-low font-telemetry-sm text-telemetry-sm">
-<span class="text-outline">클라우드 SaaS 3년 총비용</span>
-<span class="text-error font-bold line-through">12.3억 원</span>
+                미세 형상 변경 시 외주 엔지니어 투입 필수. 2~3개월의 캘리브레이션 기간과 수천만원의 유지보수 비용 발생.
+              </p>
 </div>
-<div class="flex items-center justify-between p-space-sm rounded bg-surface-container-high font-telemetry-sm text-telemetry-sm">
-<span class="text-primary font-medium">SynapseQC 엣지 3년 총비용</span>
-<span class="text-primary-container font-bold">1.8억 원</span>
+<!-- SynapseQC Solution -->
+<div class="bg-surface-container-high p-4 rounded flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">verified</span>
+<span class="font-label-caps text-label-caps text-primary-container">SYNAPSEQC PHYSICAL AI</span>
 </div>
-</div>
-<!-- TCO Advantage Callout -->
-<div class="p-space-md rounded bg-surface-container-highest/40 flex flex-col gap-1 mt-2">
-<span class="font-title-sm text-title-sm text-tertiary-fixed-dim">100% 자산 소유권 &amp; 제로 클라우드 락인</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant text-[13px]">
-                산업용 GPU PC 10대 및 라이선스는 공장 사내 자산으로 영구 귀속되며, 네트워크 단절 시에도 365일 24시간 자율 가동됩니다.
+<p class="font-body-sm text-body-sm text-primary font-medium">
+                정상품 샘플 30장만으로 비지도 학습 개시. 24시간 내 공장 내부에서 자체 자동 경량 모델 컴파일 완료.
               </p>
 </div>
 </div>
-<div class="pt-space-md">
-<a class="w-full py-2.5 rounded bg-surface-container-high text-primary font-title-sm text-title-sm flex items-center justify-center gap-2 hover:bg-surface-variant transition-colors" href="#">
-<span class="material-symbols-outlined text-[18px]">receipt_long</span>
-              공장 맞춤형 견적 &amp; ROI 상세 리포트 신청
-            </a>
+<div class="font-telemetry-sm text-telemetry-sm text-primary-fixed-dim bg-surface-container-lowest px-3 py-1.5 rounded">
+            배포 주기: 90일 단축 (90d → 24h)
+          </div>
 </div>
+<!-- Column 2: Data Security & Latency -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between gap-6 shadow-md">
+<div class="flex flex-col gap-4">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">security</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-semibold">데이터 보안 &amp; 생산망 분리</h3>
+<!-- Traditional Failure -->
+<div class="bg-surface-container p-4 rounded flex flex-col gap-1.5">
+<span class="font-label-caps text-label-caps text-error">클라우드 기반 비전 AI</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                도면 및 신제품 이미지 외부 전송으로 산업 기밀 유출 위험. 인터넷 단절 시 라인 전체 셧다운 및 300ms 네트워크 지연.
+              </p>
+</div>
+<!-- SynapseQC Solution -->
+<div class="bg-surface-container-high p-4 rounded flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">lock</span>
+<span class="font-label-caps text-label-caps text-primary-container">100% AIR-GAPPED ON-PREMISE</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary font-medium">
+                외부 인터넷 연결 없는 완벽한 폐쇄망 작동. 사내 현장 GPU 엣지 박스에서 100% 로컬 연산 및 저장.
+              </p>
+</div>
+</div>
+<div class="font-telemetry-sm text-telemetry-sm text-primary-fixed-dim bg-surface-container-lowest px-3 py-1.5 rounded">
+            보안 규정 준수: 국가 핵심 제조기술 인증
+          </div>
+</div>
+<!-- Column 3: High-speed Realtime Control -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between gap-6 shadow-md">
+<div class="flex flex-col gap-4">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">speed</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-semibold">고속 라인 판정 및 PLC 연동</h3>
+<!-- Traditional Failure -->
+<div class="bg-surface-container p-4 rounded flex flex-col gap-1.5">
+<span class="font-label-caps text-error">무거운 범용 AI 프레임워크</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                프레임당 150ms 이상 소요되어 컨베이어 속도를 감속해야 함. 실시간 이젝터 신호 타이밍 불일치로 불량 혼입.
+              </p>
+</div>
+<!-- SynapseQC Solution -->
+<div class="bg-surface-container-high p-4 rounded flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px]">bolt</span>
+<span class="font-label-caps text-label-caps text-primary-container">35ms TENSORRT INT8 INFERENCE</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary font-medium">
+                초당 10개 완벽 전수 판정. 50ms 이내 미쓰비시/지멘스 PLC와 직결되어 불량품 실린더 즉시 분기 배출.
+              </p>
+</div>
+</div>
+<div class="font-telemetry-sm text-telemetry-sm text-primary-fixed-dim bg-surface-container-lowest px-3 py-1.5 rounded">
+            인라인 속도: 600 RPM 컨베이어 완벽 대응
+          </div>
 </div>
 </div>
 </div>
 </section>
-<!-- HARDWARE & COMPATIBILITY ARCHITECTURE -->
-<section class="w-full px-gutter py-space-xl bg-surface">
-<div class="max-w-7xl mx-auto w-full flex flex-col gap-space-lg">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-<div>
-<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">AIR-GAPPED HARDWARE SPEC</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">현장 표준 규격 호환 및 하드웨어 아키텍처</h2>
+<!-- 3. CORE ADVANTAGE: 3-STEP PIPELINE -->
+<section id="core-tech" class="scroll-mt-16 max-w-7xl mx-auto px-6 lg:px-12 py-20 flex flex-col gap-12">
+<div class="flex flex-col gap-2 max-w-2xl">
+<div class="inline-flex items-center gap-2">
+<span class="w-1.5 h-4 bg-tertiary-container rounded-full"></span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest">DEPLOYMENT ARCHITECTURE</span>
 </div>
-<span class="font-telemetry-sm text-telemetry-sm text-outline">UBUNTU REAL-TIME KERNEL READY</span>
-</div>
-<!-- Spec Cards Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
-<!-- Hardware 1 -->
-<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-space-sm shadow-md">
-<div class="w-10 h-10 rounded bg-surface-container-high flex items-center justify-center text-primary">
-<span class="material-symbols-outlined">developer_board</span>
-</div>
-<div>
-<h4 class="font-title-sm text-title-sm text-on-surface font-bold">산업용 GPU 엣지 PC</h4>
-<span class="font-telemetry-sm text-telemetry-sm text-outline">총 10대 노드 클러스터</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            NVIDIA RTX급 탑재. PC 1대당 고속 카메라 4대 스트림 병렬 처리(40 FPS). 팬리스 방열 설계로 분진 및 진동 환경 최적화.
-          </p>
-<div class="mt-auto pt-space-xs font-label-caps text-label-caps text-primary-fixed-dim">
-            CUDA 12.x / TENSORRT INT8
-          </div>
-</div>
-<!-- Hardware 2 -->
-<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-space-sm shadow-md">
-<div class="w-10 h-10 rounded bg-surface-container-high flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined">photo_camera</span>
-</div>
-<div>
-<h4 class="font-title-sm text-title-sm text-on-surface font-bold">GigE Vision &amp; GenICam</h4>
-<span class="font-telemetry-sm text-telemetry-sm text-outline">총 40대 인라인 연동</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            기성 메이저 머신비전 카메라(Basler, Teledyne, Hikrobot) 전 제품 플러그앤플레이 지원. 하드웨어 외부 스트로보 트리거 동기화.
-          </p>
-<div class="mt-auto pt-space-xs font-label-caps text-label-caps text-secondary-fixed">
-            GIGE 1000BASE-T / ZERO DROP
-          </div>
-</div>
-<!-- Hardware 3 -->
-<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-space-sm shadow-md">
-<div class="w-10 h-10 rounded bg-surface-container-high flex items-center justify-center text-tertiary-container">
-<span class="material-symbols-outlined">precision_manufacturing</span>
-</div>
-<div>
-<h4 class="font-title-sm text-title-sm text-on-surface font-bold">초고속 PLC &amp; I/O 제어</h4>
-<span class="font-telemetry-sm text-telemetry-sm text-outline">Modbus TCP / OPC UA / DI/O</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            미쓰비시, 지멘스, LS일렉트릭 PLC 규격 즉각 연동. 35ms 이내 판정 완료 신호를 실린더 Ejector로 다이렉트 트리거링.
-          </p>
-<div class="mt-auto pt-space-xs font-label-caps text-label-caps text-tertiary-fixed">
-            HIGH-SPEED DIGITAL I/O
-          </div>
-</div>
-<!-- Hardware 4 -->
-<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-space-sm shadow-md">
-<div class="w-10 h-10 rounded bg-surface-container-high flex items-center justify-center text-primary-fixed">
-<span class="material-symbols-outlined">security</span>
-</div>
-<div>
-<h4 class="font-title-sm text-title-sm text-on-surface font-bold">에어갭 폐쇄망 배포 체계</h4>
-<span class="font-telemetry-sm text-telemetry-sm text-outline">도커 프라이빗 레지스트리</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            물리적으로 외부 인터넷이 차단된 상태에서 보안 USB 또는 사내 격리 LAN망을 통해 100MB급 경량 모델 바이너리 즉각 전송.
-          </p>
-<div class="mt-auto pt-space-xs font-label-caps text-label-caps text-primary">
-            DVC / SECURE LOCAL DOCKER
-          </div>
-</div>
-</div>
-<!-- Factory Node Status Bar -->
-<div class="bg-surface-container-lowest p-space-md rounded-xl flex flex-col lg:flex-row items-center justify-between gap-space-md shadow-lg">
-<div class="flex items-center gap-space-md">
-<div class="w-3 h-3 rounded-full bg-tertiary-container animate-pulse"></div>
-<div>
-<div class="font-title-sm text-title-sm text-on-surface">제1공장 40채널 전수 검사 시스템 정상 가동 중</div>
-<div class="font-telemetry-sm text-telemetry-sm text-outline">최근 모델 패키지 빌드: v4.8.2-edge (Today 06:00:00 KST)</div>
-</div>
-</div>
-<div class="flex items-center gap-space-md">
-<div class="text-right hidden sm:block">
-<span class="font-label-caps text-label-caps text-outline block">MONTHLY UPTIME</span>
-<span class="font-telemetry-md text-telemetry-md text-tertiary-fixed font-bold">99.98% (Down &lt; 9m)</span>
-</div>
-<a class="px-space-md py-2 rounded bg-surface-container-high text-primary font-title-sm text-title-sm hover:bg-surface-variant transition-colors" href="edge-monitor.html">
-            엣지 노드 전체 상태 콘솔
-          </a>
-</div>
-</div>
-</div>
-</section>
-<!-- FINAL CTA STRIP -->
-<section class="w-full px-gutter py-space-xl bg-surface-container-low">
-<div class="max-w-7xl mx-auto w-full bg-gradient-to-r from-surface-container to-surface-container-high p-space-xl rounded-2xl flex flex-col md:flex-row items-center justify-between gap-space-lg shadow-2xl">
-<div class="flex flex-col gap-space-xs max-w-2xl">
-<span class="font-label-caps text-label-caps text-primary-container tracking-wider">NEXT-GEN PHYSICAL AI FOR SMART FACTORY</span>
-<h3 class="font-headline-lg text-headline-lg text-primary font-bold">지금 귀사 부품 샘플로 24시간 실증 PoC를 시작하십시오</h3>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">다품종 소량 생산 라인을 위한 3-Step 맞춤 파이프라인</h2>
 <p class="font-body-md text-body-md text-on-surface-variant">
-          공장 방문 없이도 소량의 정상/불량 이미지셋을 통해 부품당 35ms 판정 레이턴시와 0.01% 불량 유출률을 사내 폐쇄망 환경에서 사전 검증해드립니다.
+        숙련된 AI 연구 인력 없이도, 현장 엔지니어가 데이터 등록부터 PLC 하드웨어 연동까지 하루 안에 완료합니다.
+      </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+<!-- Step 1 -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-telemetry-lg text-telemetry-lg text-primary-container">01</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps">FEW-SHOT INGEST</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-semibold">소량 데이터셋 즉각 등록</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          수만 장의 학습 이미지가 필요 없습니다. 정상품 20~50장과 소량의 불량 샘플만으로 비지도 이상치 탐지(PatchCore) 및 3D 물리적 텍스처 증강을 자동 실행합니다.
+        </p>
+<div class="mt-4 pt-4 bg-surface-container-lowest p-3 rounded flex items-center justify-between">
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">요구 정상품 데이터</span>
+<span class="font-telemetry-md text-telemetry-md text-tertiary-fixed font-bold">20 ~ 50 샘플</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-telemetry-lg text-telemetry-lg text-primary-container">02</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps">AUTO-OPTIMIZER</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-semibold">24시간 무중단 경량 AutoML</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          최적의 합성신경망을 자체 탐색해 100MB 이하 INT8 경량 엔진으로 정량화 컴파일. 현장 사내 서버에서 클라우드 연결 없이 12시간 내 학습 및 최적화를 완결합니다.
+        </p>
+<div class="mt-4 pt-4 bg-surface-container-lowest p-3 rounded flex items-center justify-between">
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">경량 컴파일 모델 크기</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-bold">&lt; 85 MB (INT8)</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-4 relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-telemetry-lg text-telemetry-lg text-primary-container">03</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps">PLC INTERLOCK</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-semibold">현장 엣지 배포 및 PLC 연동</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          사내 네트워크로 10~40대 산업용 PC에 원클릭 무중단 배포. Modbus / CC-Link / Profinet 프로토콜로 에어 블로워 및 리젝트 실린더를 35ms 내 제어합니다.
+        </p>
+<div class="mt-4 pt-4 bg-surface-container-lowest p-3 rounded flex items-center justify-between">
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">이젝터 신호 연동 지연</span>
+<span class="font-telemetry-md text-telemetry-md text-secondary-fixed font-bold">≤ 8 ms</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. SUPPORTED INDUSTRIES & DEFECT TYPES -->
+<section id="use-cases" class="scroll-mt-16 w-full bg-surface-container-lowest py-20">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col gap-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-2 max-w-xl">
+<div class="inline-flex items-center gap-2">
+<span class="w-1.5 h-4 bg-secondary-container rounded-full"></span>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">PROVEN DOMAINS</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">국내 유수 제조 현장에서 검증된 부품 영역</h2>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">총 120+ 종류 이상의 표면 및 치수 결함 즉시 분류 지원</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Domain 1: EV Automotive -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden flex flex-col shadow-md">
+<div class="h-44 w-full bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Technical high-resolution macro shot of an electric vehicle aluminum motor housing with machined screw threads and connector pins under laboratory quality control lighting. Subtle cool cyan highlight reflections." src="images/img-d192b0cef5.jpg">
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 px-2 py-0.5 rounded text-primary font-label-caps text-label-caps">
+              AUTOMOTIVE &amp; EV
+            </div>
+</div>
+<div class="p-5 flex flex-col gap-3 flex-1 justify-between">
+<div class="flex flex-col gap-2">
+<h3 class="font-title-sm text-title-sm text-primary font-bold">자동차 전장 &amp; EV 모터 하우징</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">알루미늄 다이캐스팅 기포, 결합 핀 휨, 0.05mm 미세 스크래치, 가공 잔여 버(Burr) 전수 검출.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed-dim font-telemetry-sm text-telemetry-sm">핀 휨 검출</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed-dim font-telemetry-sm text-telemetry-sm">하우징 크랙</span>
+</div>
+</div>
+</div>
+<!-- Domain 2: Precision Machinery -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden flex flex-col shadow-md">
+<div class="h-44 w-full bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Industrial macro view of high-precision metallic ball bearings and industrial gears bathed in crisp blue and titanium-hued rim lighting. Clean engineering setting." src="images/img-1faff0a527.jpg">
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 px-2 py-0.5 rounded text-primary font-label-caps text-label-caps">
+              PRECISION MACHINERY
+            </div>
+</div>
+<div class="p-5 flex flex-col gap-3 flex-1 justify-between">
+<div class="flex flex-col gap-2">
+<h3 class="font-title-sm text-title-sm text-primary font-bold">정밀 기계 · 베어링 &amp; 기어</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">유류 얼룩 오염, 궤도면 피팅(Pitting), 치형 결손, 압입 깊이 조립 공차 마이크로 판정.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed-dim font-telemetry-sm text-telemetry-sm">치형 결손</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed-dim font-telemetry-sm text-telemetry-sm">유류 오염 판정</span>
+</div>
+</div>
+</div>
+<!-- Domain 3: Secondary Battery -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden flex flex-col shadow-md">
+<div class="h-44 w-full bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up photograph of lithium-ion pouch battery cells in high-tech cleanroom manufacturing line with laser inspection sensor reflecting on pouch edges and electrode tabs." src="images/img-c888b2c107.jpg">
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 px-2 py-0.5 rounded text-primary font-label-caps text-label-caps">
+              BATTERY TECH
+            </div>
+</div>
+<div class="p-5 flex flex-col gap-3 flex-1 justify-between">
+<div class="flex flex-col gap-2">
+<h3 class="font-title-sm text-title-sm text-primary font-bold">2차전지 · 파우치 및 각형 배터리</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">파우치 실링 주름, 전극 탭 정렬 불량, 표면 절연 필름 찍힘, 미세 금속 이물 유입 검사.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed-dim font-telemetry-sm text-telemetry-sm">실링 주름</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed-dim font-telemetry-sm text-telemetry-sm">탭 이물 유입</span>
+</div>
+</div>
+</div>
+<!-- Domain 4: Electronics & Semiconductor -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden flex flex-col shadow-md">
+<div class="h-44 w-full bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Futuristic electronic printed circuit board surface mount inspection with micro chips and solder joints highlighted by cyan automated optical inspection beams in dark lab environment." src="images/img-bb7b7a4d39.jpg">
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 px-2 py-0.5 rounded text-primary font-label-caps text-label-caps">
+              SEMICONDUCTOR &amp; SMT
+            </div>
+</div>
+<div class="p-5 flex flex-col gap-3 flex-1 justify-between">
+<div class="flex flex-col gap-2">
+<h3 class="font-title-sm text-title-sm text-primary font-bold">반도체 &amp; PCB 표면 실장(SMT)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">솔더 브릿지, 냉납, 칩 미삽·오삽, 패턴 단선 및 회로 박리 현상 100% 비접촉 검출.</p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed-dim font-telemetry-sm text-telemetry-sm">솔더 브릿지</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed-dim font-telemetry-sm text-telemetry-sm">부품 오삽 검출</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. MEASURABLE ROI & ECONOMICS -->
+<section class="scroll-mt-16 max-w-7xl mx-auto px-6 lg:px-12 py-20 flex flex-col gap-12" id="roi-section">
+<div class="flex flex-col gap-2 max-w-2xl">
+<div class="inline-flex items-center gap-2">
+<span class="w-1.5 h-4 bg-tertiary-fixed-dim rounded-full"></span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest">FINANCIAL IMPACT</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">경영진과 공장장이 확신하는 측정 가능한 ROI</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        단순 가설이 아닌 실제 14개 라인 양산 적용 후 집계된 경제적 지표입니다.
+      </p>
+</div>
+<!-- ROI Metric Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Big Card: Cost Reduction -->
+<div class="lg:col-span-7 bg-surface-container-low p-8 rounded-xl flex flex-col justify-between gap-8 shadow-lg">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary-container">ANNUAL NET BENEFIT</span>
+<span class="px-2.5 py-1 rounded bg-tertiary-container/10 text-tertiary-fixed font-telemetry-sm text-telemetry-sm">기대 절감 실측치</span>
+</div>
+<span class="font-display-lg text-display-lg text-primary font-bold">
+            연간 <span class="text-tertiary-fixed font-telemetry-lg text-[44px] leading-tight">3.2억 원</span> 순비용 절감
+          </span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            3교대 육안 전수 검사 인력 6명의 피로 누적 재배치(인건비 2.4억원 절감)와 해외 고객사 불량 유출 클레임 및 리콜 선제 차단(연평균 0.8억원 손실 방지).
+          </p>
+</div>
+<!-- Inline SVG Progress Graph -->
+<div class="bg-surface-container p-4 rounded-lg flex flex-col gap-3">
+<div class="flex justify-between items-center text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+<span class="">도입 전 불량 유출 손실 vs 도입 후 손실 최소화</span>
+<span class="text-tertiary-fixed font-bold">-92% 손실 감소</span>
+</div>
+<div class="w-full h-4 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container" style="width: 8%"></div>
+<div class="h-full bg-error-container/60" style="width: 92%"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant font-label-caps text-label-caps">
+<span class="">SYNAPSEQC 잔여 불량률 0.008%</span>
+<span class="">기존 수작업 유출률 1.2%</span>
+</div>
+</div>
+</div>
+<!-- Side Cards -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Payback Period -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-3 shadow-md flex-1 justify-center">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary">PAYBACK PERIOD</span>
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">trending_up</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary font-bold">
+<span class="text-secondary-fixed font-telemetry-lg text-[36px]">6.8개월</span> 만에 투자금 전액 회수
+          </span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            하드웨어 및 온프레미스 AI 셋업 비용을 7개월 이내 전액 상쇄하여 빠른 BEP를 실현합니다.
+          </p>
+</div>
+<!-- TCO Savings -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-3 shadow-md flex-1 justify-center">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary-fixed-dim">3-YEAR TCO REDUCTION</span>
+<span class="material-symbols-outlined text-primary-container text-[20px]">cloud_off</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary font-bold">
+            클라우드 대비 <span class="text-primary-container font-telemetry-lg text-[36px]">10.5억</span> 절감
+          </span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            대용량 이미지 전송 트래픽 비용 및 지속적인 SaaS API 과금 없이 영구 사내 라이선스로 운영됩니다.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. QUICK POC INQUIRY FORM & FINAL BANNER -->
+<section class="scroll-mt-16 w-full bg-surface-container-lowest py-20" id="poc-form">
+<div class="max-w-5xl mx-auto px-6 lg:px-12 flex flex-col gap-10">
+<!-- Title & Assurance Header -->
+<div class="text-center flex flex-col gap-3 items-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/10 text-primary-container font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span class="">공장 출장 없이 24시간 이내 실증(PoC) 리포트 발행</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">
+          귀사 실제 부품 샘플로 AI 판정 정확도를 무료 검증하세요
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+          샘플 부품 이미지 30장을 보내주시면, 익일 오후 정밀 결함 검출 보고서와 추론 속도 시뮬레이션 결과를 무상 제공합니다.
         </p>
 </div>
-<div class="flex flex-col sm:flex-row items-center gap-space-sm shrink-0">
-<a class="w-full sm:w-auto px-space-xl py-3 rounded bg-primary-container text-surface-container-lowest font-title-sm text-title-sm font-bold text-center hover:bg-secondary-fixed shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all" href="dataset-studio.html">
-          PoC 데이터셋 등록 문의
-        </a>
-<a class="w-full sm:w-auto px-space-lg py-3 rounded bg-surface-container-lowest text-on-surface font-title-sm text-title-sm text-center hover:bg-surface-variant transition-colors" href="#">
-          기술 백서 다운로드
-        </a>
+<!-- Inquiry Form Container -->
+<div class="bg-surface-container-low p-8 rounded-2xl shadow-xl flex flex-col gap-6">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6" onsubmit="event.preventDefault(); document.getElementById('poc-success').classList.remove('hidden');">
+<!-- Company Name -->
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">회사명 / 사업장</label>
+<input class="w-full bg-surface-container-lowest px-4 py-3 rounded font-body-md text-body-md text-primary placeholder-outline focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="(주)현대모빌스 평택공장" required="" type="text">
+</div>
+<!-- Contact Person & Title -->
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">담당자 성함 / 부서 및 직책</label>
+<input class="w-full bg-surface-container-lowest px-4 py-3 rounded font-body-md text-body-md text-primary placeholder-outline focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="홍길동 수석연구원 (품질보증팀)" required="" type="text">
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">회사 이메일 주소</label>
+<input class="w-full bg-surface-container-lowest px-4 py-3 rounded font-body-md text-body-md text-primary placeholder-outline focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="engineer@company.co.kr" required="" type="email">
+</div>
+<!-- Phone -->
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">연락처</label>
+<input class="w-full bg-surface-container-lowest px-4 py-3 rounded font-body-md text-body-md text-primary placeholder-outline focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="010-1234-5678" required="" type="tel">
+</div>
+<!-- Inspection Domain Select -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">검사 대상 부품 및 공정 형태</label>
+<select class="w-full bg-surface-container-lowest px-4 py-3 rounded font-body-md text-body-md text-primary focus:outline-none focus:ring-1 focus:ring-primary-container">
+<option value="auto">자동차 / EV 부품 (하우징, 커넥터, 샤프트 등)</option>
+<option value="machinery">정밀 기계 부품 (베어링, 감속기 기어, 금속 가공품)</option>
+<option value="battery">2차전지 / 배터리 (파우치 실링, 전극 탭, 캔 캡)</option>
+<option value="smt">전자 회로 / PCB / SMT 조립체</option>
+<option value="press">프레스 성형 / 플라스틱 사출 결함</option>
+<option value="other">기타 특수 공정 (직접 기재)</option>
+</select>
+</div>
+<!-- Additional Notes -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">해결하고자 하는 현재 결함 이슈 (선택)</label>
+<textarea class="w-full bg-surface-container-lowest px-4 py-3 rounded font-body-md text-body-md text-primary placeholder-outline focus:outline-none focus:ring-1 focus:ring-primary-container resize-none" placeholder="예: 초당 8개 속도로 지나가는 샤프트 단면의 0.1mm 미세 스크래치 미검율 문제 해결 필요" rows="3"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="md:col-span-2 flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">verified_user</span>
+<span class="">제출하신 샘플 및 기술 정보는 NDA(비밀유지협약) 수준으로 암호화 보호됩니다.</span>
+</div>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-8 py-3.5 rounded font-title-sm text-title-sm font-semibold shadow-[0_0_20px_rgba(0,242,254,0.35)] hover:bg-primary-fixed hover:text-on-primary-fixed transition-all" type="submit">
+<span class="">24시간 PoC 신청 완료</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</form>
+<!-- Feedback Success Banner -->
+<div class="hidden p-4 rounded bg-tertiary-container/10 border-l-4 border-tertiary-container text-tertiary flex items-center justify-between" id="poc-success">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span class="font-body-md text-body-md">신청이 정상 접수되었습니다. 2시간 이내에 전담 AI 솔루션 아키텍트가 기술 안내 연락을 드립니다.</span>
+</div>
+<button class="text-tertiary font-bold text-title-sm" onclick="document.getElementById('poc-success').classList.add('hidden')">닫기</button>
+</div>
+</div>
+<!-- Direct Hotline Banner -->
+<div class="flex flex-col sm:flex-row items-center justify-between p-6 bg-surface-container-low rounded-xl gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[28px]">support_agent</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary font-bold">긴급 공정 진단이 필요하신가요?</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">공장 자동화 전문 엔지니어가 실시간으로 기술 타당성을 검토해 드립니다.</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-telemetry-lg text-telemetry-lg text-primary font-bold">02-123-1234</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary-fixed font-label-caps text-label-caps">내선 1번</span>
+</div>
 </div>
 </div>
 </section>
-</div></main><footer class="w-full bg-surface-container-lowest py-space-xl"><div class="w-full px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-md"><span class="font-title-sm text-title-sm text-primary">SynapseQC Physical AI</span><span class="font-telemetry-sm text-telemetry-sm text-outline">Firmware v4.8.2-edge</span></div><div class="font-label-caps text-label-caps text-outline tracking-wider">© 2025 SYNAPSEQC CORP. INDUSTRIAL AIR-GAPPED VISION SYSTEM. ALL RIGHTS RESERVED.</div><div class="flex items-center gap-space-lg"><span class="flex items-center gap-1 text-tertiary font-telemetry-sm text-telemetry-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>NODE CLUSTER SECURE</span></div></div></footer></body></html>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-xl"><div class="max-w-7xl mx-auto px-6 lg:px-12"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl mb-space-xl"><div class="md:col-span-2 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-5 h-5 bg-primary-container rounded-sm flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[14px]">biotech</span></div><span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">SYNAPSE<span class="text-primary-container">QC</span></span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">초정밀 제조 공정을 위한 인라인 물리적 AI 및 엣지 비전 비파괴 검사 시스템. 제로 트러스트 에어갭(Air-Gapped) 인프라로 온프레미스 제조 기밀을 완벽히 보호합니다.</p><div class="flex flex-wrap items-center gap-space-sm pt-space-xs"><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high rounded text-on-surface-variant font-label-caps text-label-caps"><span class="material-symbols-outlined text-tertiary-container text-[14px]">verified_user</span><span class="">ISO 27001 온프레미스 인증</span></div><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high rounded text-on-surface-variant font-label-caps text-label-caps"><span class="material-symbols-outlined text-primary-fixed-dim text-[14px]">shield_with_heart</span><span class="">에어갭 100% 보안 준수</span></div><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high rounded text-on-surface-variant font-label-caps text-label-caps"><span class="material-symbols-outlined text-secondary text-[14px]">memory</span><span class="">Edge AI TEE 가속 하드웨어</span></div></div></div><div class="flex flex-col gap-space-xs"><span class="font-label-caps text-label-caps text-primary-fixed-dim uppercase tracking-wider mb-space-xs">솔루션 및 기술</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="solutions" href="#solutions">초고속 결함 검출</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="solutions" href="#solutions">3D 단층 정밀 스캔</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="core-tech" href="#core-tech">Edge Micro-Inference</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="roi-impact" href="#roi-section">공정 수율 분석 시뮬레이터</a></div><div class="flex flex-col gap-space-xs"><span class="font-label-caps text-label-caps text-primary-fixed-dim uppercase tracking-wider mb-space-xs">엔지니어링 &amp; 지원</span><span class="font-body-sm text-body-sm text-on-surface-variant">운영본부: 서울특별시 강남구 테헤란로 521 테크타워 14층</span><span class="font-body-sm text-body-sm text-on-surface-variant">현장 기술지원: support@synapseqc.ai</span><span class="font-body-sm text-body-sm text-on-surface-variant">대표전화: 02-123-1234 (PoC 전담 24h 대응)</span><span class="font-body-sm text-body-sm text-on-surface-variant">사업자등록번호: 214-88-09142</span></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md bg-surface-container-low px-space-lg py-space-md rounded"><div class="flex items-center gap-space-sm"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-ping"></span><span class="font-telemetry-sm text-telemetry-sm text-tertiary">전국 14개 공장 PoC 엣지 노드 실시간 정상 가동 중</span></div><div class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">© 2025 SynapseQC Inc. All Physical AI Intellectual Rights Reserved.</div></div></div></footer>
+
+<script>
+    (function initNavScrollSpy() {
+      // Highlight the header nav item for the section currently in view
+      const nav = document.querySelector('header nav[data-active-classes]');
+      if (!nav) return;
+      const active = nav.dataset.activeClasses.split(' ');
+      const inactive = 'font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container'.split(' ');
+      const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+      const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+      function update() {
+        // Nav order differs from page order, so pick the passed section closest to the top
+        let current = 0, best = -Infinity;
+        sections.forEach((sec, i) => {
+          const top = sec ? sec.getBoundingClientRect().top : Infinity;
+          if (top <= 120 && top > best) { best = top; current = i; }
+        });
+        links.forEach((a, i) => {
+          const on = i === current;
+          active.forEach(c => a.classList.toggle(c, on));
+          inactive.forEach(c => a.classList.toggle(c, !on));
+          if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+        });
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script></body></html>
