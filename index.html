@@ -284,6 +284,83 @@
 </div>
 </div>
 </section>
+<!-- 3-1. VISION PREPROCESSING -->
+<section id="preprocessing" class="scroll-mt-16 max-w-7xl mx-auto px-6 lg:px-12 pb-20 flex flex-col gap-12">
+<div class="flex flex-col gap-2 max-w-2xl">
+<div class="inline-flex items-center gap-2">
+<span class="w-1.5 h-4 bg-primary-container rounded-full"></span>
+<span class="font-label-caps text-label-caps text-primary-fixed-dim uppercase tracking-widest">EDGE PREPROCESSING</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">어떤 각도로, 어떤 조명에서 찍혀도 같은 기준으로 봅니다</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        현장 이미지는 촬영할 때마다 조명, 거리, 부품 각도가 달라집니다. 이 차이가 그대로 모델에 들어가면 AI는 결함보다 엉뚱한 차이를 먼저 학습합니다. 그래서 판정 전에 모든 이미지를 같은 조건으로 맞춥니다.
+      </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+<!-- Result image -->
+<figure class="lg:col-span-3 bg-surface-container-low p-4 rounded-xl flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">RAW → ROI → ALIGNED → CLAHE</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container/10 text-tertiary font-label-caps text-label-caps">NUT · DEFECT SAMPLES</span>
+</div>
+<img class="w-full h-auto rounded bg-white" src="images/preprocessed_nut.png" alt="너트 불량 이미지 2장의 전처리 단계별 결과: 원본, 밝기 보정과 부품 검출, 회전 정렬과 크롭, 대비 강조" loading="lazy">
+<figcaption class="font-body-sm text-body-sm text-on-surface-variant">
+          위: 근접 촬영된 너트 / 아래: 멀리서 비스듬히 찍힌 소형 너트. 두 이미지 모두 같은 크기·방향·밝기로 정리되어 모델에 들어갑니다.
+        </figcaption>
+</figure>
+<!-- Steps -->
+<ol class="lg:col-span-2 flex flex-col gap-4">
+<li class="bg-surface-container-low p-5 rounded-xl flex gap-4 hover:bg-surface-container transition-all">
+<span class="font-telemetry-lg text-telemetry-lg text-primary-container">01</span>
+<div class="flex flex-col gap-1">
+<h3 class="font-title-sm text-title-sm text-primary">배경 밝기 보정</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">밝기가 제각각인 배경을 일정한 기준값으로 맞춰 조명 차이를 없앱니다.</p>
+</div>
+</li>
+<li class="bg-surface-container-low p-5 rounded-xl flex gap-4 hover:bg-surface-container transition-all">
+<span class="font-telemetry-lg text-telemetry-lg text-primary-container">02</span>
+<div class="flex flex-col gap-1">
+<h3 class="font-title-sm text-title-sm text-primary">부품 영역 검출</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">밝기 대신 밝기가 변하는 경계를 따라 외곽을 찾습니다. 금속 면이 배경만큼 밝아도 놓치지 않습니다.</p>
+</div>
+</li>
+<li class="bg-surface-container-low p-5 rounded-xl flex gap-4 hover:bg-surface-container transition-all">
+<span class="font-telemetry-lg text-telemetry-lg text-primary-container">03</span>
+<div class="flex flex-col gap-1">
+<h3 class="font-title-sm text-title-sm text-primary">회전 정렬과 크기 통일</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">비스듬히 놓인 부품을 바로 세우고, 가까이서 찍었든 멀리서 찍었든 같은 크기로 잘라냅니다.</p>
+</div>
+</li>
+<li class="bg-surface-container-low p-5 rounded-xl flex gap-4 hover:bg-surface-container transition-all">
+<span class="font-telemetry-lg text-telemetry-lg text-primary-container">04</span>
+<div class="flex flex-col gap-1">
+<h3 class="font-title-sm text-title-sm text-primary">대비 강조</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">그림자 속에 숨은 찍힘과 균열이 잘 보이도록 국소 대비를 살짝 높입니다.</p>
+</div>
+</li>
+</ol>
+</div>
+<!-- Metrics -->
+<div class="flex flex-col gap-3">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded flex items-center justify-between">
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">이미지 1장 전처리 시간</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-bold">≈ 3 ms</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded flex items-center justify-between">
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">부품 영역 검출</span>
+<span class="font-telemetry-md text-telemetry-md text-tertiary-fixed font-bold">260 / 260</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded flex items-center justify-between">
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">회전 정렬 오차 (95%)</span>
+<span class="font-telemetry-md text-telemetry-md text-secondary-fixed font-bold">≤ 2°</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        * 합성 너트 데이터 260장, 개발용 PC 기준 측정값. 기존 이진화 방식은 이미지 4장 중 1장에서 부품 외곽을 제대로 찾지 못했습니다.
+      </p>
+</div>
+</section>
 <!-- 4. SUPPORTED INDUSTRIES & DEFECT TYPES -->
 <section id="use-cases" class="scroll-mt-16 w-full bg-surface-container-lowest py-20">
 <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col gap-12">
