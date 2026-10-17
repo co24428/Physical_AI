@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "author": "IanKim",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-xiao-esp32-s3", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr",
+      "top": -60,
+      "left": -260,
+      "attrs": { "lux": "500", "threshold": "2.5" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn",
+      "top": 60,
+      "left": -200,
+      "attrs": { "color": "blue", "label": "NPN sensor (B key)", "key": "b" }
+    },
+    { "type": "wokwi-resistor", "id": "r_trig", "top": 120, "left": -110, "attrs": { "value": "220" } },
+    {
+      "type": "wokwi-led",
+      "id": "led_trig",
+      "top": 150,
+      "left": -170,
+      "attrs": { "color": "yellow", "label": "TRIGGER" }
+    },
+    { "type": "wokwi-logic-analyzer", "id": "la", "top": -10, "left": 140, "attrs": {} }
+  ],
+  "connections": [
+    [ "ldr:VCC", "esp:3V3", "red", [] ],
+    [ "ldr:GND", "esp:GND", "black", [] ],
+    [ "ldr:DO", "esp:D0", "green", [] ],
+    [ "btn:1.r", "esp:D1", "blue", [] ],
+    [ "btn:2.r", "esp:GND", "black", [] ],
+    [ "esp:D2", "r_trig:2", "orange", [] ],
+    [ "r_trig:1", "led_trig:A", "orange", [] ],
+    [ "led_trig:C", "esp:GND", "black", [] ],
+    [ "la:D0", "esp:D0", "green", [] ],
+    [ "la:D1", "esp:D1", "blue", [] ],
+    [ "la:D2", "esp:D2", "orange", [] ],
+    [ "la:GND", "esp:GND", "black", [] ]
+  ],
+  "dependencies": {}
+}

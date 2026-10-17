@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "author": "IanKim",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-xiao-esp32-s3", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "enc", "top": -20, "left": -230, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r_pitch", "top": 130, "left": -110, "attrs": { "value": "220" } },
+    {
+      "type": "wokwi-led",
+      "id": "led_pitch",
+      "top": 160,
+      "left": -170,
+      "attrs": { "color": "green", "label": "PITCH" }
+    },
+    { "type": "wokwi-logic-analyzer", "id": "la", "top": -10, "left": 140, "attrs": {} }
+  ],
+  "connections": [
+    [ "enc:VCC", "esp:3V3", "red", [] ],
+    [ "enc:GND", "esp:GND", "black", [] ],
+    [ "enc:CLK", "esp:D0", "green", [] ],
+    [ "enc:DT", "esp:D1", "blue", [] ],
+    [ "enc:SW", "esp:D2", "violet", [] ],
+    [ "esp:D3", "r_pitch:2", "orange", [] ],
+    [ "r_pitch:1", "led_pitch:A", "orange", [] ],
+    [ "led_pitch:C", "esp:GND", "black", [] ],
+    [ "la:D0", "esp:D0", "green", [] ],
+    [ "la:D1", "esp:D1", "blue", [] ],
+    [ "la:D2", "esp:D2", "violet", [] ],
+    [ "la:D3", "esp:D3", "orange", [] ],
+    [ "la:GND", "esp:GND", "black", [] ]
+  ],
+  "dependencies": {}
+}
